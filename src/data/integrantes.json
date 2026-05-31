@@ -1,0 +1,56 @@
+{
+  "sergio": {
+    "nombre": "Sergio Daniel Galván",
+    "avatar": "/img/avatarsergio.png",
+    "rol": "Full Stack Developer",
+    "bio": "Apasionado por el desarrollo Frontend y la optimización de assets visuales.",
+    "habilidades": [
+      { "nombre": "HTML/CSS", "porcentaje": "90%" },
+      { "nombre": "JavaScript", "porcentaje": "80%" },
+      { "nombre": "React", "porcentaje": "70%" },
+      { "nombre": "Git/GitHub", "porcentaje": "85%" },
+      { "nombre": "UI Design", "porcentaje": "75%" }
+    ],
+    "proyectos": [
+      { "titulo": "E-Commerce Web", "desc": "Tienda online con carrito de compras dinámico en JS." },
+      { "titulo": "Dashboard Admin", "desc": "Panel de control administrativo con gráficos interactivos." },
+      { "titulo": "Landing Page Minimalista", "desc": "Sitio institucional adaptativo con transiciones suaves." }
+    ]
+  },
+  "victor": {
+    "nombre": "Victor Álvarez",
+    "avatar": "/img/avatarvictor.png",
+    "rol": "Frontend Specialist",
+    "bio": "Especialista en la creación de layouts responsivos y diseño de experiencia de usuario.",
+    "habilidades": [
+      { "nombre": "HTML/CSS", "porcentaje": "95%" },
+      { "nombre": "JavaScript", "porcentaje": "75%" },
+      { "nombre": "React", "porcentaje": "65%" },
+      { "nombre": "Tailwind CSS", "porcentaje": "80%" },
+      { "nombre": "Diseño UX", "porcentaje": "85%" }
+    ],
+    "proyectos": [
+      { "titulo": "Plataforma Educativa", "desc": "Interfaz adaptada para la gestión de cursos online." },
+      { "titulo": "Aplicación del Clima", "desc": "Consumo de API meteorológica con interfaz dinámica." },
+      { "titulo": "Portfolio Personal", "desc": "Sitio web profesional con modo oscuro integrado." }
+    ]
+  },
+  "alejandro": {
+    "nombre": "Alejandro Sebastian Rodriguez",
+    "avatar": "/img/avataralejandro.png",
+    "rol": "Software & Logic Developer",
+    "bio": "Enfocado en la lógica del negocio, enrutamiento estructurado y manejo de datos JSON.",
+    "habilidades": [
+      { "nombre": "JavaScript", "porcentaje": "85%" },
+      { "nombre": "React & Router", "porcentaje": "80%" },
+      { "nombre": "Node.js", "porcentaje": "70%" },
+      { "nombre": "SQL/Bases de Datos", "porcentaje": "75%" },
+      { "nombre": "GitFlow", "porcentaje": "80%" }
+    ],
+    "proyectos": [
+      { "titulo": "Buscador en Tiempo Real", "desc": "Motor de filtrado predictivo sobre base de datos local." },
+      { "titulo": "Sistema de Gestión", "desc": "Control de stock y usuarios utilizando POO en JavaScript." },
+      { "titulo": "API REST Integral", "desc": "Servidor backend para el procesamiento estructurado de datos." }
+    ]
+  }
+}
