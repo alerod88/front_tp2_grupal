@@ -8,20 +8,22 @@ function Home() {
     <>
       <header className="hero">
         <div className="hero-content">
-          <h1>Innovación Colectiva</h1>
-          <p>Somos un equipo apasionado por el desarrollo web, enfocados en crear soluciones digitales minimalistas y funcionales.</p>
-          
-          <button 
-            className="btn-primary" 
-            onClick={() => setMostrarProposito(!mostrarProposito)}
+          <div 
+            className="hero" 
+            style={{ 
+              background: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/hero-bg.jpg') center/cover no-repeat" 
+            }}
           >
-            Conocer Propósito
-          </button>
-          
-          {mostrarProposito && (
+            <h1>Innovación Colectiva</h1>
+            <p>Somos un equipo apasionado por el desarrollo web, enfocados en crear soluciones digitales minimalistas y funcionales.</p>
+            <button className="btn-primary">Conocer Propósito</button>
+
+            {mostrarProposito && (
             <p id="mensaje-proposito">
               Nuestro objetivo es dominar las tecnologías del Frontend para transformar ideas en experiencias reales.</p>
-          )}
+            )}
+          </div>
+          
         </div>
       </header>
 
