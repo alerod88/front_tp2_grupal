@@ -10,10 +10,10 @@ function Bitacora() {
       <section style={{ marginBottom: '40px', background: '#fff', padding: '25px', borderRadius: '12px', boxShadow: '0 5px 15px rgba(0,0,0,0.02)' }}>
         <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>Justificación de Migración a React [cite: 55]</h3>
         <p style={{ textSelf: 'left', textAlign: 'justify', fontSize: '0.95rem', color: '#555', marginBottom: '10px' }}>
-          La transición desde nuestra estructura estática original (HTML/JS Vanilla) hacia una arquitectura orientada a objetos y componentes en React fue motivada por la necesidad de escalabilidad y mantenibilidad[cite: 21, 55]. En el modelo anterior, la manipulación directa del DOM mediante instrucciones imperativas (como <code>innerHTML</code>) generaba un código propenso a errores y difícil de sincronizar[cite: 45].
+          La transición desde nuestra estructura estática original (HTML/JS Vanilla) hacia una arquitectura orientada a objetos y componentes en React fue motivada por la necesidad de escalabilidad y mantenibilidad. En el modelo anterior, la manipulación directa del DOM mediante instrucciones imperativas (como <code>innerHTML</code>) generaba un código propenso a errores y difícil de sincronizar.
         </p>
         <p style={{ textSelf: 'left', textAlign: 'justify', fontSize: '0.95rem', color: '#555' }}>
-          Al migrar a una <strong>Single Page Application (SPA)</strong>, logramos una experiencia fluida gestionada dinámicamente por <strong>React Router</strong>, evitando recargas innecesarias del navegador[cite: 22, 32]. Además, la declaración de estados mutables mediante <code>useState</code> nos permite procesar filtros en tiempo real sobre estructuras JSON de forma eficiente y limpia, delegando la renderización de la interfaz en el motor virtual de React[cite: 45].
+          Al migrar a una <strong>Single Page Application (SPA)</strong>, logramos una experiencia fluida gestionada dinámicamente por <strong>React Router</strong>, evitando recargas innecesarias del navegador. Además, la declaración de estados mutables mediante <code>useState</code> nos permite procesar filtros en tiempo real sobre estructuras JSON de forma eficiente y limpia, delegando la renderización de la interfaz en el motor virtual de React.
         </p>
       </section>
 
