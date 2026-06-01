@@ -34,6 +34,9 @@ function Sidebar() {
         <NavLink to="/api" className={({ isActive }) => isActive ? 'active' : ''}>
           API Externa
         </NavLink>
+        <NavLink to="/contacto" className={({ isActive }) => isActive ? 'active' : ''}>
+          Contacto
+        </NavLink>
 
         
       </nav>

@@ -5,6 +5,7 @@ import Explorador from './pages/Explorador';
 import Bitacora from './pages/Bitacora';
 import Perfil from './pages/Perfil';
 import ApiExterna from './pages/ApiExterna';
+import Contacto from './pages/Contacto';
 
 
 function App() {
@@ -33,9 +34,13 @@ function App() {
 
             {/* 5. ApiExterna*/}
             <Route path="/api" element={<ApiExterna />} />
+
+            {/* 6. Contacto */}
+            <Route path="/contacto" element={<Contacto />} />
             
-            {/* Las que sumen después, como Bitácora o API, también van acá */}
-            {/* <Route path="/bitacora" element={<Bitacora />} /> */}
+            
+            {/*  */}
+            {/*  */}
           </Routes>
 
           <footer>
