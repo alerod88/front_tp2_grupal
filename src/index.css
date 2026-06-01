@@ -40,17 +40,14 @@ h1, h2, h3 {
    3. SECCIÓN HERO Y BOTONES (ADAPTADO)
    ========================================================================== */
 .hero {
-    height: 50vh; /* Ajustado para que encaje mejor en el panel de la derecha */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/hero-bg.jpg') center/cover;
+    width: 100%;             /* Fuerza a que ocupe el 100% del ancho disponible */
+    max-width: 100%;         /* Rompe cualquier tope de ancho anterior que cause el efecto espejo */
+    box-sizing: border-box;  /* Evita que los paddings rompan el ancho */
+    padding: 4rem 2rem;
     color: white;
-    padding: 0 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 12px;     /* Mantiene las esquinas redondeadas si te gustan */
+    overflow: hidden;        /* Corta cualquier excedente visual */
 }
 
 .hero h1 { 
@@ -124,12 +121,12 @@ h1, h2, h3 {
 /* ==========================================================================
    4. PORTADA: GRILLA DE INTEGRANTES (DASHBOARD HOME)
    ========================================================================== */
-.team-container { 
-    padding: 2rem 0; 
-    width: 100%; /* Asegura que el contenedor de la sección use todo el ancho */
+.team-container {
+    width: 100%;
+    padding: 2rem 0; /* 2rem arriba y abajo, 0 a los costados */
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
 
 .team-container h2 { 
