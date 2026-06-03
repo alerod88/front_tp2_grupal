@@ -1,36 +1,34 @@
 import React from 'react';
-import listaBitacora from '../data/bitacora.json'; // Ajustá la ruta según tu carpeta
+import listaBitacora from '../data/bitacora.json';
 
 function Bitacora() {
   return (
     <div className="dashboard-content">
-      <div className="team-container" style={{ alignItems: 'flex-start' }}>
-        <h2>Bitácora de Desarrollo Grupal</h2>
-        <p style={{ marginBottom: '20px' }}>
-          Registro cronológico de reuniones, debates técnicos y toma de decisiones del equipo de <strong>MocoSoft</strong>.
-        </p>
-        
-        <table className="bitacora-table">
-          <thead>
-            <tr>
-              <th style={{ width: '12%' }}>Fecha</th>
-              <th style={{ width: '30%' }}>Actividad / Debate</th>
-              <th style={{ width: '18%' }}>Integrantes</th>
-              <th style={{ width: '40%' }}>Acuerdo Técnico / Resultado</th>
+      <h2>Bitácora de Desarrollo Grupal</h2>
+      <p style={{ marginBottom: '25px', fontSize: '1rem' }}>
+        Registro cronológico de reuniones, debates técnicos y toma de decisiones del equipo de <strong>MocoSoft</strong>.
+      </p>
+      
+      <table className="bitacora-table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Actividad / Debate</th>
+            <th>Integrantes</th>
+            <th>Acuerdo Técnico / Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listaBitacora.map((item, index) => (
+            <tr key={index}>
+              <td>{item.fecha}</td>
+              <td>{item.actividad}</td>
+              <td>{item.integrantes}</td>
+              <td>{item.resultado}</td>
             </tr>
-          </thead>
-          <tbody>
-            {listaBitacora.map((item, index) => (
-              <tr key={index}>
-                <td style={{ fontWeight: 'bold', color: 'var(--accent)' }}>{item.fecha}</td>
-                <td style={{ fontWeight: '500' }}>{item.actividad}</td>
-                <td style={{ fontStyle: 'italic' }}>{item.integrantes}</td>
-                <td>{item.resultado}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

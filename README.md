@@ -1,6 +1,6 @@
 # MocoSoft - Dashboard de Innovación Colectiva
 
-## 📋 Información del Proyecto
+## Información del Proyecto
 * **Institución:** IFTS N°29
 * **Carrera:** Tecnicatura Superior en Desarrollo de Software
 * **Materia:** Desarrollo Web Frontend
@@ -24,7 +24,7 @@ La interfaz se rediseñó bajo una arquitectura de **Dashboard centralizado**, d
 
 ---
 
-## 📸 Evidencia Visual y Estructuración de Datos (JSON)
+## Screenshots y Estructuración de Datos (JSON)
 
 Para lograr un sistema verdaderamente escalable y desacoplado del código fuente, el equipo tomó la decisión de **diseñar y estructurar bases de datos locales utilizando archivos independientes en formato JSON** para cada uno de los integrantes (`alejandro.json`, `sergio.json` y `victor.json`). 
 
@@ -33,26 +33,28 @@ Este enfoque de persistencia de datos del lado del cliente permitió que la vist
 A continuación, se detallan los hitos del desarrollo y el pulido de la interfaz a través de las capturas de pantalla de la aplicación:
 
 ### 1. Panel de Inicio (Dashboard General)
-* **Captura de referencia:** `image_12381e.jpg`
+* **Captura de referencia:** ![Dashboard de Inicio](./public/img/screenshots/dashboard.jpg)
 * **Detalle del trabajo:** Implementación del layout central adaptativo. Se corrigió un error crítico de encogimiento visual que comprimía el contenedor hacia el centro, logrando que el banner principal de *Innovación Colectiva* y la grilla de accesos directos a los integrantes ocupen el 100% del ancho fluido disponible en la pantalla.
 * **Componente restaurado:** Se repararon de raíz los estilos del botón interactivo del Hero ("Conocer/Ocultar Propósito"), transformándolo en una píldora ergonómica con efectos hover de elevación.
 
 ### 2. Rediseño Multimedia y Grilla Cinematográfica
-* **Captura de referencia:** `image_1dfede.jpg`
+* **Captura de referencia:**
+![Peliculas](./public/img/screenshots/peliculas.jpg)
+![Discos](./public/img/screenshots/discos.jpg)
 * **Detalle del trabajo:** Se removió el elemento nativo HTML `<details>` que generaba graves problemas de contraste en modo oscuro (volviendo invisibles los títulos) y rompía la simetría al abrirse de forma asíncrona.
 * **Resultado final:** Las películas y álbumes se migraron a un formato *wide* de una sola columna. Los títulos se forzaron a blanco puro (`#ffffff`) y las sinopsis a un gris plata ultra legible (`#cbd5e1`), garantizando un contraste óptimo. Los iFrames de YouTube y Spotify quedaron perfectamente alineados.
 
 ### 3. Máscaras de Recorte y Efectos de Vanguardia
-* **Captura de referencia:** `image_12a93c.png` & `image_12a19e.jpg`
+* **Captura de referencia:** ![Efecto](./public/img/screenshots/destello.jpg)
 * **Detalle del trabajo:** Corrección de fugas de brillo en los avatares de los integrantes. Para evitar que el haz de luz del efecto *Shiny Glow* se viera cuadrado en las esquinas de las fotos redondas, se aplicó la propiedad estándar `mask-image: radial-gradient(white, black);` junto con su prefijo `-webkit-`, logrando que el destello se autoguarde estrictamente dentro del borde circular de la foto.
-* **Limpieza de Interfaz:** Se eliminó por completo el contenedor antiguo de redes sociales para limpiar la pantalla y priorizar el enfoque académico de la SPA.
+
 
 ### 4. Animación Física en Carrusel de Proyectos
-* **Captura de referencia:** `image_1299fd.png`
+* **Captura de referencia:** ![Efecto](./public/img/screenshots/deslizamiento.jpg)
 * **Detalle del trabajo:** Se eliminó el cambio en seco de las diapositivas. Mediante la coordinación de estados reactivos en React (`useState`) y temporizadores enlazados con transiciones CSS (`translateX`), los proyectos ahora realizan un efecto de empuje lateral fluido (`slide-enter` / `slide-exit`) imitando un comportamiento táctil orgánico.
 
 ### 5. Sanitización de Formularios y Botonera Global
-* **Captura de referencia:** `image_123c22.png` & `image_12a0a2.png`
+* **Captura de referencia:** ![Formulario](./public/img/screenshots/formulario.jpg)
 * **Detalle del trabajo:** Eliminación de botones nativos rotos. El botón "Enviar Consulta" del módulo de Contacto, el botón de peticiones en "API Externa" y el botón "← Volver al Dashboard" de la vista de perfiles fueron despojados de estilos en línea (*hardcodeados*) planos y grises. 
 * **Resultado final:** Se unificaron bajo las clases `.btn-primary` y `.btn-secondary`, convirtiéndose en elementos redondeados modernos con transiciones de color sutiles y adaptadas al modo nocturno.
 
