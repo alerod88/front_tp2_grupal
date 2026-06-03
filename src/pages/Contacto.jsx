@@ -2,10 +2,10 @@ import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 function Contacto() {
-  
-  const [state, handleSubmit] = useForm("https://formspree.io/f/xnjyazaq");
+  // Configurado con tu ID de formulario real
+  const [state, handleSubmit] = useForm("xnjyazaq");
 
-  // Si el formulario se envió con éxito, mostramos un mensaje premium de agradecimiento
+  // Mensaje de éxito al enviar
   if (state.succeeded) {
     return (
       <div className="contact-container">
@@ -27,8 +27,9 @@ function Contacto() {
       </p>
 
       <form onSubmit={handleSubmit} className="contact-form">
-        <div style={{ textAlignment: 'left', width: '100%' }}>
-          <label htmlFor="email" style={{ display: 'block', marginBottom: '8px', fontWeight: '500', textAlign: 'left' }}>
+        {/* Campo: Correo Electrónico */}
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <label htmlFor="email" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
             Correo Electrónico
           </label>
           <input
@@ -42,25 +43,46 @@ function Contacto() {
             prefix="Email" 
             field="email"
             errors={state.errors}
-            style={{ color: '#ff7675', fontSize: '0.85rem', marginTop: '5px', display: 'block', textAlign: 'left' }}
+            style={{ color: '#ff7675', fontSize: '0.85rem', marginTop: '5px', display: 'block' }}
           />
         </div>
 
-        <div style={{ textAlignment: 'left', width: '100%' }}>
-          <label htmlFor="message" style={{ display: 'block', marginBottom: '8px', fontWeight: '500', textAlign: 'left' }}>
+        {/* Campo: Asunto (¡Nuevo!) */}
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <label htmlFor="subject" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
+            Asunto
+          </label>
+          <input
+            id="subject"
+            type="text" 
+            name="subject"
+            placeholder="Motivo de tu consulta (Ej: Presupuesto, Soporte...)"
+            required
+          />
+          <ValidationError 
+            prefix="Subject" 
+            field="subject"
+            errors={state.errors}
+            style={{ color: '#ff7675', fontSize: '0.85rem', marginTop: '5px', display: 'block' }}
+          />
+        </div>
+
+        {/* Campo: Mensaje / Consulta */}
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <label htmlFor="message" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
             Mensaje / Consulta
           </label>
           <textarea
             id="message"
             name="message"
-            placeholder="Escribí los detalles de tu consulta..."
+            placeholder="Escribí los detalles de tu consulta técnica..."
             required
           />
           <ValidationError 
             prefix="Message" 
             field="message"
             errors={state.errors}
-            style={{ color: '#ff7675', fontSize: '0.85rem', marginTop: '5px', display: 'block', textAlign: 'left' }}
+            style={{ color: '#ff7675', fontSize: '0.85rem', marginTop: '5px', display: 'block' }}
           />
         </div>
 
