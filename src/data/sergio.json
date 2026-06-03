@@ -1,0 +1,60 @@
+{
+  "nombre": "Sergio Daniel Galván",
+  "avatar": "/img/avatarsergio.png",
+  "ubicacion": "Buenos Aires, Argentina",
+  "edad": "65 años",
+  "habilidades": [
+    { "nombre": "Backend (PHP & Node.js)", "porcentaje": 90 },
+    { "nombre": "Frontend (React, Angular, JS)", "porcentaje": 85 },
+    { "nombre": "Plataforma .NET (C# / VB)", "porcentaje": 80 },
+    { "nombre": "Bases de Datos (SQL Server / Postgres)", "porcentaje": 85 }
+  ],
+  "techIcons": [
+    { "clase": "devicon-php-plain", "nombre": "PHP" },
+    { "clase": "devicon-react-original", "nombre": "React" },
+    { "clase": "devicon-csharp-plain", "nombre": "C#" },
+    { "clase": "devicon-postgresql-plain", "nombre": "PostgreSQL" },
+    { "clase": "devicon-python-plain", "nombre": "Python" }
+  ],
+  "proyectos": [
+    { "titulo": "Sistema ERP Corporativo", "descripcion": "Desarrollo del backend completo para facturación en plataforma .NET.", "imagen": "/img/proyectos/erp.jpg" },
+    { "titulo": "API REST Node.js", "descripcion": "Microservicios optimizados para la gestión logística empresarial con autenticación JWT.", "imagen": "/img/proyectos/api.jpg" },
+    { "titulo": "Dashboard Estadístico", "descripcion": "Panel interactivo desarrollado en Angular para análisis masivo de registros de bases de datos.", "imagen": "/img/proyectos/dashboard.jpg" }
+  ],
+  "social": {
+    "linkedin": "https://linkedin.com",
+    "github": "https://github.com",
+    "twitter": "https://twitter.com"
+  },
+  "peliculas": [
+    {
+      "titulo": "2001, Una Odisea en el Espacio",
+      "img": "/img/film/2001.png",
+      "sinopsis": "Considerada por la crítica como el mejor film de Ciencia Ficción de todos los tiempos.",
+      "anio": "1968",
+      "wiki": "https://es.wikipedia.org/wiki/2001:_A_Space_Odyssey_(pel%C3%ADcula)",
+      "trailer": "https://www.youtube.com/embed/yf52KZnje_8"
+    },
+    {
+      "titulo": "Dune, Parte Dos",
+      "img": "/img/film/dune2.png",
+      "sinopsis": "La saga del galardonado cineasta Denis Villeneuve continúa, adaptando el próximo capítulo de la famosa novela de Frank Herbert.",
+      "anio": "2024",
+      "wiki": "https://es.wikipedia.org/wiki/Dune:_Part_Two",
+      "trailer": "https://www.youtube.com/embed/esezQhsrix0"
+    },
+    {
+      "titulo": "El Señor de los Anillos: Las Dos Torres",
+      "img": "/img/film/lasdostorres.png",
+      "sinopsis": "Segunda parte de la aclamada trilogía cinematográfica de J.R.R. Tolkien, dirigida por el cineasta Peter Jackson.",
+      "anio": "2002",
+      "wiki": "https://es.wikipedia.org/wiki/El_Se%C3%B1or_de_los_Anillos:_las_dos_torres",
+      "trailer": "https://www.youtube.com/embed/GPAOgWeAU-E"
+    }
+  ],
+  "discos": [
+    { "titulo": "The Wall - Pink Floyd", "embedUrl": "https://open.spotify.com/embed/album/5Dbax7G8SWrP9xyzkOvy2F?utm_source=generator" },
+    { "titulo": "Jazz - The Queen", "embedUrl": "https://open.spotify.com/embed/album/2yuTRGIackbcReLUXOYBqU?utm_source=generator&theme=0" },
+    { "titulo": "Mediterráneo - Joan Manuel Serrat", "embedUrl": "https://open.spotify.com/embed/album/7h6vVYPUiuDF6KKcqMdE72?utm_source=generator" }
+  ]
+}

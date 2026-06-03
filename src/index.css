@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. VARIABLES Y ESTILOS GLOBALES
+   1. VARIABLES, CONFIGURACIÓN GLOBAL Y ANIMACIONES
    ========================================================================== */
 :root {
     --primary: #2d3436;
@@ -15,115 +15,233 @@
     box-sizing: border-box;
 }
 
+html, body, #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden; /* Bloqueo absoluto de scroll horizontal */
+    background-color: var(--light);
+    transition: background-color 0.3s ease;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--light);
     color: var(--text);
     line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: 'Poppins', sans-serif;
     color: var(--primary);
+    transition: color 0.3s ease;
 }
 
 .hidden { display: none; }
 
-/* ==========================================================================
-   2. NAVEGACIÓN ANTERIOR (OCULTADA PARA EL DASHBOARD)
-   ========================================================================== */
-.navbar {
-    display: none; /* Se oculta la barra superior vieja */
+/* ✨ Efecto de entrada fluida (Fade-In) para cambios de ruta SPA */
+.dashboard-content, .hero, .team-container, .contact-container, .profile-container {
+    animation: dashboardFadeIn 0.45s ease-in-out;
+}
+
+@keyframes dashboardFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================================================
-   3. SECCIÓN HERO Y BOTONES (ADAPTADO)
+   2. INTERFAZ EJE: ARQUITECTURA DASHBOARD (NAVEGACIÓN)
+   ========================================================================== */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--light);
+}
+
+.sidebar {
+    width: 260px;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    background-color: #1a1d20; 
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 100;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-logo img {
+    height: 35px;
+    width: auto;
+}
+
+.sidebar-logo h2 {
+    color: white;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+/* Botón interactivo para menú en celulares */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-menu a {
+    color: #a0a6b5;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+}
+
+.sidebar-menu a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Enrutamiento activo */
+.sidebar-menu a.active {
+    color: white;
+    background-color: var(--accent);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.25);
+}
+
+.sidebar-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #57606f;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    font-weight: 700;
+}
+
+.sidebar-menu a.sublink {
+    padding-left: 25px;
+    font-size: 0.9rem;
+    color: #888f9e;
+}
+
+.sidebar-menu a.sublink:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* 🚀 Contenedor central derecho corregido para evitar que se achique */
+.dashboard-content {
+    margin-left: 260px;
+    flex: 1;
+    width: calc(100% - 260px);
+    padding: 40px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   3. COMPONENTES DE LA HOME (HERO, BOTONES Y PROPÓSITO CORREGIDOS)
    ========================================================================== */
 .hero {
-    width: 100%;             /* Fuerza a que ocupe el 100% del ancho disponible */
-    max-width: 100%;         /* Rompe cualquier tope de ancho anterior que cause el efecto espejo */
-    box-sizing: border-box;  /* Evita que los paddings rompan el ancho */
-    padding: 4rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5rem 2rem;
     color: white;
     text-align: center;
-    border-radius: 12px;     /* Mantiene las esquinas redondeadas si te gustan */
-    overflow: hidden;        /* Corta cualquier excedente visual */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
 }
 
 .hero h1 { 
     color: white;
     font-size: 3rem; 
     margin-bottom: 1rem; 
+    font-weight: 700;
 }
 
-/* Selector específico para evitar que rompa el resto de la aplicación */
 .hero p { 
-    max-width: 600px; 
+    max-width: 650px; 
     width: 100%;
-    margin: 0 auto 2rem auto; 
-    font-size: 1.1rem; 
+    margin: 0 auto 1.5rem auto; 
+    font-size: 1.15rem; 
     text-align: center;
+    opacity: 0.95;
 }
 
+/* ✨ Solución definitiva al botón del Hero que se veía roto en image_12381e.jpg */
+.hero button, 
+.hero .btn-primary,
 .btn-primary {
-    margin-bottom: 25px;
-    padding: 12px 30px;
+    padding: 12px 35px;
     background: var(--accent);
     border: none;
     color: white;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.3s;
     font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.2);
+    transition: all 0.25s ease-in-out;
+    display: inline-block;
+    margin-bottom: 15px;
 }
 
+.hero button:hover, 
+.hero .btn-primary:hover,
 .btn-primary:hover { 
-    transform: scale(1.05); 
+    transform: scale(1.03);
+    filter: brightness(1.08);
+    box-shadow: 0 6px 15px rgba(0, 184, 148, 0.35);
 }
 
-/* Interacción del propósito */
 #mensaje-proposito {
-    margin: 15px auto 0 auto;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 15px;
+    margin: 20px auto 0 auto;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(4px);
+    padding: 18px;
     border-radius: 8px;
-    max-width: 600px;
+    max-width: 650px;
     width: 100%;
     text-align: center;
     color: white;
-}
-
-/* Estilos para los títulos de sección en la sidebar */
-.sidebar-section-title {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #636e72;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  padding-left: 15px;
-  font-weight: 600;
-}
-
-/* Identación para los perfiles individuales */
-.sidebar-menu a.sublink {
-  padding-left: 25px;
-  font-size: 0.95rem;
-  color: #a0a6b5;
-}
-
-/* Efecto hover específico para los perfiles */
-.sidebar-menu a.sublink:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.02);
+    font-size: 1.05rem;
+    border-left: 4px solid var(--accent);
+    animation: dashboardFadeIn 0.3s ease-out;
 }
 
 /* ==========================================================================
-   4. PORTADA: GRILLA DE INTEGRANTES (DASHBOARD HOME)
+   4. PORTADA: GRILLA DE TARJETAS (CARDS) DE INTEGRANTES
    ========================================================================== */
 .team-container {
     width: 100%;
-    padding: 2rem 0; /* 2rem arriba y abajo, 0 a los costados */
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,13 +250,14 @@ h1, h2, h3 {
 .team-container h2 { 
     margin-bottom: 2rem; 
     font-size: 2rem; 
+    font-weight: 600;
 }
 
 .grid-integrantes {
     display: grid;
     gap: 30px;
     grid-template-columns: 1fr;
-    width: 100%;
+    width: 100%; /* Forzamos a expandirse a todo el ancho disponible */
 }
 
 .card {
@@ -146,28 +265,31 @@ h1, h2, h3 {
     padding: 30px;
     border-radius: 15px;
     text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 300px;
-    transition: all 0.3s ease;
+    min-height: 250px;
+    border: 1px solid #eef1f4;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08); 
+    border-color: var(--accent);
 }
 
 .card h3 {
     font-size: 1.3rem;
     margin-top: 10px;
+    color: var(--primary);
 }
 
 .card-img img {
-    width: 100px;
-    height: 100px;
+    width: 105px;
+    height: 105px;
     border-radius: 50%;
     margin-bottom: 15px;
     object-fit: cover;
@@ -178,295 +300,483 @@ h1, h2, h3 {
     margin-top: 15px; 
     color: var(--accent); 
     font-weight: 600; 
+    font-size: 0.95rem;
 }
 
 /* ==========================================================================
-   5. PÁGINAS INDIVIDUALES Y ELEMENTOS INTERACTIVOS
+   5. MÓDULOS DE CONTACTO, API EXTERNA Y BITÁCORA (BOTONES CORREGIDOS)
+   ========================================================================== */
+.contact-container {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+    border: 1px solid #eef1f4;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.contact-form textarea { resize: vertical; min-height: 120px; }
+
+/* ✨ Botón de Contacto revivido */
+.contact-form button {
+    padding: 12px 35px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.2);
+    transition: all 0.25s ease-in-out;
+    display: block;
+    width: 100%;
+}
+
+.contact-form button:hover {
+    transform: scale(1.02);
+    filter: brightness(1.08);
+    box-shadow: 0 6px 15px rgba(0, 184, 148, 0.35);
+}
+
+/* ✨ Botones del módulo de API Externa revividos */
+.api-container button,
+.api-btn {
+    padding: 12px 35px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.2);
+    transition: all 0.25s ease-in-out;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.api-container button:hover,
+.api-btn:hover {
+    transform: scale(1.03);
+    filter: brightness(1.08);
+    box-shadow: 0 6px 15px rgba(0, 184, 148, 0.35);
+}
+
+/* Tabla de la Bitácora */
+.bitacora-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.bitacora-table th { 
+    background-color: var(--accent); 
+    color: white; 
+    padding: 15px; 
+    text-align: left; 
+    font-weight: 600;
+}
+
+.bitacora-table td { 
+    padding: 20px 15px; 
+    border-bottom: 1px solid #edf2f7; 
+    vertical-align: top; 
+    text-align: left;
+}
+
+/* ==========================================================================
+   6. VISTAS DE PERFILES INDIVIDUALES & AVATARES REDONDOS
    ========================================================================== */
 .profile-container {
-    padding: 40px 0;
+    padding: 20px 0;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    width: 100%;
 }
 
 .card-individual {
     background: white;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     max-width: 800px;
     width: 100%;
     text-align: center;
+    border: 1px solid #eef1f4;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 👨‍💻 Contenedor del Avatar (Perfectamente circular e inmune a desbordes de brillo) */
+.profile-avatar-container {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 20px auto;
+    position: relative;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
 }
 
 .profile-avatar {
-    width: 150px;
-    height: 150px;
+    width: 100% !important;
+    height: 100% !important;
+    margin-bottom: 0 !important;
+    border: 4px solid var(--accent);
     border-radius: 50%;
-    border: 5px solid var(--accent);
-    margin-bottom: 20px;
+    object-fit: cover;
+    display: block;
 }
 
 .info-grid {
-    display: flex;
-    flex-direction: column; 
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     text-align: left;
     margin: 20px 0;
 }
 
-.disc-item, .film-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: #f8f9fa;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
+.profile-section-block {
+    background: #fdfefe;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #eef1f4;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.disc-item:hover, .film-item:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+.profile-section-block h3 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+    font-size: 1.15rem;
+    margin-bottom: 15px;
 }
 
-.film-item img {
-    width: 133px;    
-    height: 200px;   
-    border-radius: 4px;
-    object-fit: cover;
-}
-
-.film-item summary {
-    text-align: left;
-    font-weight: bold;
-    width: 200px;
-}
-
-.film-item p, .disc-item p {
-    text-align: left;
+/* 📊 Barras de progreso */
+.skill-bar-bg {
     width: 100%;
-    margin: 0;
+    background-color: #eaeef1;
+    height: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
 }
 
-.btn-film-round, .btn-spotify-round {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+.skill-bar-fill {
+    background: linear-gradient(90deg, var(--accent), #00bfa5);
+    height: 100%;
+    border-radius: 50px;
+    animation: loadProgress 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes loadProgress { from { width: 0%; } }
+
+/* 💻 Grid de Tecnologías */
+.tech-icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 15px;
+}
+
+.tech-icon-card {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    padding: 10px;
+    background: var(--light);
+    border-radius: 8px;
+    border: 1px solid #eaf0f2;
+    transition: all 0.25s ease-in-out;
 }
 
-.btn-film-round { background-color: #e74c3c; }
-.btn-film-round:hover { background-color: #ff7675; transform: scale(1.1); }
-
-.btn-spotify-round { background-color: #1DB954; }
-.btn-spotify-round:hover { background-color: #1ed760; transform: scale(1.1) rotate(15deg); }
-
-.play-icon, .music-icon { color: white; }
-
-.disc-item img {
-    width: 160px;
-    height: 160px;
-    border-radius: 4px;
-    object-fit: cover;
+.tech-icon-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--accent);
+    box-shadow: 0 5px 12px rgba(0, 184, 148, 0.15);
 }
 
-/* Módulo de Contacto */
-.contact-container {
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.tech-icon-glyph {
+    font-size: 2rem;
+    color: #2c3e50;
+    transition: color 0.2s ease;
 }
 
-.contact-form {
-  background: var(--white);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  max-width: 500px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin: 0 auto;
-}
-
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 1rem;
-}
-
-.contact-form textarea { resize: vertical; min-height: 120px; }
+.tech-icon-card:hover .tech-icon-glyph { color: var(--accent); }
 
 /* ==========================================================================
-   6. MODO OSCURO (OPCIONAL)
+   🎢 CARRUSEL DE PROYECTOS CON TRANSICIÓN DE DESLIZAMIENTO FISICO
    ========================================================================== */
-body.dark-theme {
-    --light: #1e272e;    
-    --white: #2f3640;    
-    --primary: #f5f6fa;  
-    --text: #dcdde1;     
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+    position: relative;
+    background: var(--light);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #eaf0f2;
+    transition: background-color 0.3s ease;
 }
-body.dark-theme .disc-item, body.dark-theme .film-item { background: #3d4551; }
+
+.carousel-slide-content { display: flex; gap: 20px; align-items: center; width: 100%; }
+.carousel-image-container { width: 45%; height: 180px; overflow: hidden; border-radius: 8px; background-color: #eaeef1; }
+.carousel-image-container img { width: 100%; height: 100%; object-fit: cover; }
+.carousel-text-container { width: 55%; text-align: left; display: flex; flex-direction: column; gap: 8px; }
+.carousel-arrow { background: var(--white); border: 1px solid #ddd; color: var(--primary); font-size: 1.2rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+.carousel-arrow:hover { background: var(--accent); color: white; border-color: var(--accent); transform: scale(1.1); }
+
+/* 🌪️ Clases dinámicas de deslizamiento horizontal */
+.carousel-slide-animator {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease-in-out;
+    will-change: transform, opacity;
+}
+
+.slide-enter {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-exit {
+    opacity: 0;
+    transform: translateX(-30px);
+}
 
 /* ==========================================================================
-   7. SECCIÓN BITÁCORA
+   🎬 MULTIMEDIA: LISTADO DE PELÍCULAS EN UNA COLUMNA CINEMATOGRÁFICA
    ========================================================================== */
-.bitacora-table {
+.info-section {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+}
+
+.info-section h3 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.multimedia-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
-    border-collapse: collapse;
-    margin: 30px 0;
 }
-.bitacora-table th { background-color: var(--accent); color: white; padding: 15px; text-align: left; }
-.bitacora-table td { padding: 25px 15px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left;}
+
+.film-card-new {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #eef1f4;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    gap: 25px;
+}
+
+.film-card-new:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 25px rgba(0, 184, 148, 0.12);
+}
+
+.film-info-header { display: flex; gap: 20px; width: 55%; align-items: flex-start; }
+.film-poster-container { border-radius: 8px; flex-shrink: 0; }
+.film-poster-new { width: 95px; height: 140px; border-radius: 8px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: block; }
+
+.film-meta-new { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+.film-meta-new h4 { font-size: 1.2rem; font-weight: 600; color: var(--primary); }
+
+.film-year-badge { align-self: flex-start; background: #eef1f4; color: var(--text); font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-bottom: 4px; }
+.film-synopsis-new { font-size: 0.85rem; line-height: 1.4; color: var(--text); display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.film-wiki-link { font-size: 0.8rem; color: var(--accent); text-decoration: none; font-weight: 600; margin-top: auto; }
+.film-wiki-link:hover { text-decoration: underline; }
+
+.film-card-new .iframe-video-container { width: 45%; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+.disc-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fdfefe;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #eef1f4;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.disc-item p { font-weight: 600; margin-bottom: 10px; text-align: left; color: var(--primary); }
 
 /* ==========================================================================
-   8. COMPONENTE SLIDER DE LOGOS
+   7. COMPONENTE INFINITE SLIDER DE LOGOS
    ========================================================================== */
-@keyframes scroll {
+@keyframes logoScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-250px * 9)); }
 }
 
-.slider {
-  background: white;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-  height: 100px;
-  margin: 20px auto;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-.slider .slide-track { display: flex; width: calc(250px * 14); animation: scroll 40s linear infinite; }
+.slider { background: white; box-shadow: 0 8px 16px -5px rgba(0, 0, 0, 0.06); height: 100px; margin: 20px auto; overflow: hidden; position: relative; width: 100%; border-radius: 8px; }
+.slider .slide-track { display: flex; width: calc(250px * 14); animation: logoScroll 40s linear infinite; }
 .slider .slide { height: 100px; width: 250px; display: flex; align-items: center; justify-content: center; }
-.slider .slide img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.slider .slide img { max-width: 80%; max-height: 80%; object-fit: contain; }
 
 /* ==========================================================================
-   9. STRUCTURA EJE: ARCHITECTURA DASHBOARD (SIDEBAR FIJA)
+   8. MEDIA QUERIES RESPONSIVE CELULARES & GRILLAS FLUIDAS
    ========================================================================== */
-.dashboard-layout {
-  display: flex;
-  min-height: 100vh;
-  background-color: var(--light);
-}
-
-.sidebar {
-  width: 260px;
-  position: fixed;
-  top: 0; left: 0; bottom: 0;
-  background-color: #1a1d20; /* Color oscuro profesional */
-  color: white;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  z-index: 100;
-}
-
-.sidebar-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Control estricto del tamaño del Logo para evitar desborde */
-.sidebar-logo img {
-  height: 40px;
-  width: auto;
-}
-
-.sidebar-logo h2 {
-  color: white;
-  font-size: 1.4rem;
-  margin: 0;
-}
-
-.sidebar-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.sidebar-menu a {
-  color: #a0a6b5;
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-.sidebar-menu a:hover {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-/* Link seleccionado de React Router */
-.sidebar-menu a.active {
-  color: white;
-  background-color: var(--accent);
-  font-weight: 600;
-}
-
-/* Contenedor dinámico de la derecha */
-.dashboard-content {
-  margin-left: 260px; /* Desplaza el contenido el ancho justo de la barra */
-  flex: 1;
-  padding: 40px;
-  box-sizing: border-box;
-  overflow-x: hidden; /* Elimina desbordes de pantalla */
-}
-
-/* ==========================================================================
-   10. RESPONSIVE Y MEDIA QUERIES (ADAPTADO A DASHBOARD)
-   ========================================================================== */
-@media (min-width: 768px) {
-    .grid-integrantes { 
-      grid-template-columns: repeat(2, 1fr); 
-      justify-content: center;
-    }
-}
-
-@media (min-width: 1100px) {
-    .grid-integrantes { 
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        width: 100%;             /* Forzamos a que ocupe todo el ancho disponible de la pantalla */
-        max-width: 100%;         /* Quitamos el tope anterior de 1200px */
-        gap: 30px;               /* Un buen espacio de separación entre las tarjetas */
-        margin: 0 auto;          
-        justify-content: center; 
-    }
-}
+@media (min-width: 768px) { .grid-integrantes { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .grid-integrantes { grid-template-columns: repeat(3, 1fr); } }
 
 @media (max-width: 768px) {
     .dashboard-layout { flex-direction: column; }
-    .sidebar { width: 100%; position: relative; height: auto; padding: 20px; }
-    .dashboard-content { margin-left: 0; padding: 20px; }
-    .film-item, .disc-item { flex-direction: column; text-align: center; }
-    .film-item img { margin: 0 auto; }
+    .sidebar { width: 100% !important; position: relative; height: auto !important; padding: 15px 20px !important; gap: 0px; }
+    .menu-toggle { display: block; }
+    .sidebar-menu { display: none; flex-direction: column; width: 100%; margin-top: 15px; background-color: #1a1d20; }
+    .sidebar-menu.mostrar { display: flex !important; }
+    .dashboard-content { margin-left: 0 !important; padding: 20px !important; width: 100% !important; }
+    .hero h1 { font-size: 2rem !important; }
+    .grid-integrantes { grid-template-columns: 1fr !important; }
+    .info-grid { grid-template-columns: 1fr !important; }
+    .film-card-new { flex-direction: column !important; align-items: flex-start; gap: 15px; }
+    .film-info-header, .film-card-new .iframe-video-container { width: 100% !important; }
+    .carousel-slide-content { flex-direction: column !important; }
+    .carousel-image-container, .carousel-text-container { width: 100% !important; }
 }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9rem;
-    color: var(--text);
-    margin-top: 40px;
-    border-top: 1px solid #eee;
-}
+/* ==========================================================================
+   9. CIERRE & SOPORTE DE MODO OSCURO INTEGRAL CONTROLADO
+   ========================================================================== */
+footer { text-align: center; padding: 20px 0; font-size: 0.9rem; color: var(--text); margin-top: 40px; border-top: 1px solid #edf2f7; }
 #correo::after { content: "info\40 mocosoft.com"; }
+
+body.dark-theme,
+body.dark-theme .dashboard-layout,
+body.dark-theme .dashboard-content,
+body.dark-theme .profile-container {
+    background-color: #1e252b !important;
+}
+
+body.dark-theme .card-individual,
+body.dark-theme .card {
+    background-color: #2c353d !important;
+    border-color: #343e47 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-theme .card-individual h1,
+body.dark-theme .card-individual h3,
+body.dark-theme .card-individual h4,
+body.dark-theme .film-meta-new h4,
+body.dark-theme .disc-item p,
+body.dark-theme .card h3 {
+    color: #ffffff !important;
+}
+
+body.dark-theme .card-individual p,
+body.dark-theme .card-individual span,
+body.dark-theme .skill-bar-wrapper span,
+body.dark-theme .film-synopsis-new,
+body.dark-theme .tech-icon-text,
+body.dark-theme .view-profile {
+    color: #cbd5e1 !important;
+}
+
+body.dark-theme .film-year-badge {
+    background-color: #343e47;
+    color: #ffffff;
+}
+
+body.dark-theme .profile-section-block,
+body.dark-theme .carousel-wrapper,
+body.dark-theme .film-card-new,
+body.dark-theme .disc-item {
+    background-color: #232a31 !important;
+    border-color: #2c353d !important;
+}
+
+body.dark-theme .tech-icon-card {
+    background-color: #1a2026 !important;
+    border-color: #232a31 !important;
+}
+
+body.dark-theme .tech-icon-glyph { color: #ffffff !important; }
+body.dark-theme .bitacora-table td { border-bottom: 1px solid #2f3136; }
+
+/* ==========================================================================
+   🔘 BOTÓN SECUNDARIO DE VOLVER AL DASHBOARD
+   ========================================================================== */
+.back-button-container { margin-top: 30px; display: flex; justify-content: center; }
+.btn-secondary {
+    padding: 12px 35px;
+    background-color: #636e72;
+    border: none;
+    color: #ffffff;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease-in-out;
+}
+.btn-secondary:hover { transform: translateY(-2px); background-color: #7f8c8d; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); }
+body.dark-theme .btn-secondary { background-color: #4b5563; color: #f3f4f6; }
+body.dark-theme .btn-secondary:hover { background-color: #606770; }
+
+/* ==========================================================================
+   ✨ EFECTO DE DESTELLO INTERACTIVO (SHINY GLOW EFFECT)
+   ========================================================================== */
+.shiny-effect { position: relative; overflow: hidden; }
+.shiny-effect::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -150%;
+    width: 50%; height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: none;
+    pointer-events: none;
+}
+.shiny-effect:hover::after { left: 150%; transition: left 0.7s ease-in-out; }

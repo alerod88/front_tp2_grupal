@@ -1,0 +1,44 @@
+[
+  {
+    "fecha": "12/05/2026",
+    "actividad": "Reunión de inicio y definición de arquitectura del proyecto.",
+    "integrantes": "Alejandro, Sergio, Víctor",
+    "resultado": "Se definió la misión de MocoSoft. Se acordó utilizar React Router Dom para el SPA y estructurar los datos de los integrantes en archivos JSON independientes para modularizar la información."
+  },
+  {
+    "fecha": "15/05/2026",
+    "actividad": "Maquetación de la interfaz base y Sidebar de navegación.",
+    "integrantes": "Alejandro, Sergio",
+    "resultado": "Se diseñó la barra lateral con estética 'Dark' fija para escritorio y colapsable mediante menú hamburguesa para celulares. Sergio detectó un desborde horizontal que Héctor corrigió bloqueando el scroll en el CSS global."
+  },
+  {
+    "fecha": "19/05/2026",
+    "actividad": "Diseño y desarrollo de la vista de perfiles individuales.",
+    "integrantes": "Víctor, Sergio, Alejandro",
+    "resultado": "Víctor propuso estructurar las habilidades con barras de progreso animadas. Se debatió cómo mostrar el Stack de programación y se decidió inyectar dinámicamente el CDN de Devicon para renderizar logos vectoriales nativos."
+  },
+  {
+    "fecha": "22/05/2026",
+    "actividad": "Implementación del Carrusel de Proyectos y módulo multimedia.",
+    "integrantes": "Sergio, Víctor",
+    "resultado": "Se programó un carrusel manual de proyectos. Al añadir la sección multimedia, se generó un conflicto visual con las etiquetas nativas 'details' de las películas. Se acordó rediseñar la sección en una grilla simétrica."
+  },
+  {
+    "fecha": "26/05/2026",
+    "actividad": "Migración de datos multimedia y unificación estética.",
+    "integrantes": "Alejandro, Sergio, Víctor",
+    "resultado": "Héctor completó la carga de películas y reproductores embebidos de Spotify en el JSON de Alejandro. Se optimizó la disposición multimedia pasando de dos columnas a una sola fila 'wide' cinematográfica para evitar baches visuales."
+  },
+  {
+    "fecha": "30/05/2026",
+    "actividad": "Desarrollo de interactividad avanzada y Modo Oscuro.",
+    "integrantes": "Sergio",
+    "resultado": "Se reemplazó el cambio de fondo simple por un Modo Oscuro global controlado por un useEffect en el Body. Se creó y aisló el componente reutilizable 'ToggleButton', pasando estados y funciones mediante props."
+  },
+  {
+    "fecha": "02/06/2026",
+    "actividad": "Control de calidad, pulido visual de componentes y entrega.",
+    "integrantes": "Victor",
+    "resultado": "Se añadió la propiedad estándar 'line-clamp' y 'mask-image' eliminando warnings en la consola de VS Code. Se automatizó el carrusel con transiciones fluidas de deslizamiento lateral (slide-enter/exit) y se añadió un efecto destello ('Shiny Glow') en los avatares redondos."
+  }
+]

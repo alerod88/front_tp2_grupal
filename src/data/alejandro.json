@@ -1,0 +1,81 @@
+{
+  "nombre": "Alejandro Sebastian Rodriguez",
+  "avatar": "/img/avataralejandro.png",
+  "ubicacion": "Buenos Aires, Argentina",
+  "edad": "37 años",
+  "habilidades": [
+    { "nombre": "Edición Editorial", "porcentaje": 95 },
+    { "nombre": "Diseño Gráfico (Illustrator / InDesign)", "porcentaje": 90 },
+    { "nombre": "Backend (Node.js & Express)", "porcentaje": 75 },
+    { "nombre": "Android Studio (Kotlin)", "porcentaje": 60 }
+  ],
+  "techIcons": [
+    { "clase": "devicon-illustrator-plain", "nombre": "Illustrator" },
+    { "clase": "devicon-photoshop-plain", "nombre": "Photoshop" },
+    { "clase": "devicon-nodejs-plain", "nombre": "Node.js" },
+    { "clase": "devicon-express-original", "nombre": "Express" },
+    { "clase": "devicon-kotlin-plain", "nombre": "Kotlin" }
+  ],
+  "proyectos": [
+    {
+      "titulo": "Campaña Editorial 10x10",
+      "descripcion": "Estrategia de marketing digital y diseño de piezas promocionales en cuotas para el rubro editorial.",
+      "imagen": "/img/proyectos/campana.jpg"
+    },
+    {
+      "titulo": "App Club FCO",
+      "descripcion": "Desarrollo en Android Studio con Kotlin para la gestión de socios y pasarela de pago de cuotas.",
+      "imagen": "/img/proyectos/clubfco.jpg"
+    },
+    {
+      "titulo": "Propuesta FEF",
+      "descripcion": "Diseño de formatos editoriales innovadores y propuesta institucional para la Federación Ecuatoriana de Fútbol.",
+      "imagen": "/img/proyectos/fef.jpg"
+    }
+  ],
+  "social": {
+    "linkedin": "https://linkedin.com",
+    "github": "https://github.com",
+    "twitter": "https://twitter.com"
+  },
+  "peliculas": [
+    {
+      "titulo": "Spiderman",
+      "img": "/img/film/spiderman.png",
+      "sinopsis": "Producida por Columbia Pictures y Laura Ziskin Productions en asociación con Marvel Enterprises, narra los orígenes cinematográficos del icónico héroe arácnido.",
+      "anio": "2002",
+      "wiki": "https://es.wikipedia.org/wiki/Spider-Man_(pel%C3%ADcula)",
+      "trailer": "https://www.youtube.com/embed/t06RUxPbp_c?si=1j6gPVUvrdtcqCbe"
+    },
+    {
+      "titulo": "Matrix",
+      "img": "/img/film/matrix.png",
+      "sinopsis": "Matrix es una obra maestra de la ciencia ficción escrita y dirigida por las hermanas Wachowski que revolucionó los efectos visuales de la época.",
+      "anio": "1999",
+      "wiki": "https://es.wikipedia.org/wiki/Matrix",
+      "trailer": "https://www.youtube.com/embed/OM0tSTEQCQA?si=OKUspc_Ry29MEnBp"
+    },
+    {
+      "titulo": "El secreto de sus ojos",
+      "img": "/img/film/elsecretodetusojos.png",
+      "sinopsis": "Película argentina ganadora del Óscar dirigida por Juan José Campanella, basada en la brillante novela de Eduardo Sacheri.",
+      "anio": "2009",
+      "wiki": "https://es.wikipedia.org/wiki/El_secreto_de_sus_ojos",
+      "trailer": "https://www.youtube.com/embed/hKa8U-8vsfU?si=iBlG3K739-FvEt9R"
+    }
+  ],
+  "discos": [
+    {
+      "titulo": "Mi Vida Loca - Los Auténticos Decadentes",
+      "embedUrl": "https://open.spotify.com/embed/album/2wV2nY2P5vHYiUNTWWzXj5?utm_source=generator"
+    },
+    {
+      "titulo": "Sigue Tu Camino - Los Auténticos Decadentes",
+      "embedUrl": "https://open.spotify.com/embed/album/0RvMRxxQUVQp2jb3CIbg5g?utm_source=generator"
+    },
+    {
+      "titulo": "Yernos Perfectos - Los Caligaris",
+      "embedUrl": "https://open.spotify.com/embed/album/7cmjeaLyvhiCqRA5MmXuYq?utm_source=generator"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "nombre": "Victor Álvarez",
+  "avatar": "/img/avatarvictor.png",
+  "ubicacion": "Buenos Aires, Argentina",
+  "edad": "52 años",
+  "habilidades": [
+    { "nombre": "Seguridad e Integridad de Datos", "porcentaje": 95 },
+    { "nombre": "Especialización en Análisis de Datos", "porcentaje": 85 },
+    { "nombre": "Android Studio (Kotlin)", "porcentaje": 70 },
+    { "nombre": "Sistemas Electrotécnicos", "porcentaje": 80 }
+  ],
+  "techIcons": [
+    { "clase": "devicon-kotlin-plain", "nombre": "Kotlin" },
+    { "clase": "devicon-android-plain", "nombre": "Android" },
+    { "clase": "devicon-mysql-plain", "nombre": "MySQL" },
+    { "clase": "devicon-linux-plain", "nombre": "Linux" },
+    { "clase": "devicon-git-plain", "nombre": "Git" }
+  ],
+  "proyectos": [
+    { "titulo": "Auditoría de Resguardos", "descripcion": "Estrategia e implementación de políticas robustas para la integridad de datos críticos corporativos.", "imagen": "/img/proyectos/resguardo.jpg" },
+    { "titulo": "Data Tracker Mobile", "descripcion": "Aplicación nativa en Kotlin para el monitoreo y envío seguro de métricas técnicas de servidores.", "imagen": "/img/proyectos/tracker.jpg" },
+    { "titulo": "Plan de Contingencia TI", "descripcion": "Diseño de infraestructura segura contra pérdidas imprevistas de información y fallas críticas de energía.", "imagen": "/img/proyectos/contingencia.jpg" }
+  ],
+  "social": {
+    "linkedin": "https://linkedin.com",
+    "github": "https://github.com",
+    "twitter": "https://twitter.com"
+  },
+  "peliculas": [
+    {
+      "titulo": "El Padrino",
+      "img": "/img/film/godfather.png",
+      "sinopsis": "Obra maestra del cine basada en la novela homónima de Mario Puzo, coadaptada y dirigida por Francis Ford Coppola.",
+      "anio": "1972",
+      "wiki": "https://es.wikipedia.org/wiki/El_padrino_(pel%C3%ADcula)",
+      "trailer": "https://www.youtube.com/embed/5GgH2QRzy_A?si=nBD6ZcLgLVMv_mR5"
+    },
+    {
+      "titulo": "Buenos Muchachos",
+      "img": "/img/film/goodfellas.jpg",
+      "sinopsis": "Aclamada obra de Martin Scorsese basada en el libro sobre hechos reales 'Wiseguy' de Nicholas Pileggi.",
+      "anio": "1990",
+      "wiki": "https://es.wikipedia.org/wiki/Goodfellas",
+      "trailer": "https://www.youtube.com/embed/UistGQBVotg?si=Xqs0-VsONt3jpynr"
+    },
+    {
+      "titulo": "El Resplandor",
+      "img": "/img/film/shining.png",
+      "sinopsis": "Icónico film de terror psicológico dirigido por Stanley Kubrick que relata el descenso a la locura de Jack Torrance.",
+      "anio": "1980",
+      "wiki": "https://es.wikipedia.org/wiki/El_resplandor_(pel%C3%ADcula)",
+      "trailer": "https://www.youtube.com/embed/IiSjPcRWjYA?si=EIyefKOuDcglO6Qm"
+    }
+  ],
+  "discos": [
+    { "titulo": "Close to the Edge - Yes", "embedUrl": "https://open.spotify.com/embed/album/1uXol4dKqzMsUiqvHpwhZh?utm_source=generator" },
+    { "titulo": "Selling England by the Pound - Genesis", "embedUrl": "https://open.spotify.com/embed/album/1rZGSWC3pMmejDwYG0ZXma?utm_source=generator" },
+    { "titulo": "Pictures at an Exhibition - ELP", "embedUrl": "https://open.spotify.com/embed/album/1qQAk408AWd5SC8eJOo01I?utm_source=generator" }
+  ]
+}
