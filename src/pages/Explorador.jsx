@@ -25,7 +25,7 @@ function Explorador() {
         </div>
         
         <button className="btn-secondary" onClick={() => setVistaCodigo(!vistaCodigo)}>
-          {vistaCodigo ? "👁️ Ver Tarjetas" : "💻 Ver JSON Crudo"}
+          {vistaCodigo ? "Ver Tarjetas" : "Ver JSON Crudo"}
         </button>
       </div>
       
