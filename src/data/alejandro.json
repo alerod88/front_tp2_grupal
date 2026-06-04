@@ -20,24 +20,19 @@
     {
       "titulo": "Campaña Editorial 10x10",
       "descripcion": "Estrategia de marketing digital y diseño de piezas promocionales en cuotas para el rubro editorial.",
-      "imagen": "/img/proyectos/campana.jpg"
+      "imagen": "/img/proyects/alejandro1.jpg"
     },
     {
       "titulo": "App Club FCO",
       "descripcion": "Desarrollo en Android Studio con Kotlin para la gestión de socios y pasarela de pago de cuotas.",
-      "imagen": "/img/proyectos/clubfco.jpg"
+      "imagen": "/img/proyects/alejandro2.jpg"
     },
     {
       "titulo": "Propuesta FEF",
       "descripcion": "Diseño de formatos editoriales innovadores y propuesta institucional para la Federación Ecuatoriana de Fútbol.",
-      "imagen": "/img/proyectos/fef.jpg"
+      "imagen": "/img/proyects/alejandro3.jpg"
     }
   ],
-  "social": {
-    "linkedin": "https://linkedin.com",
-    "github": "https://github.com",
-    "twitter": "https://twitter.com"
-  },
   "peliculas": [
     {
       "titulo": "Spiderman",

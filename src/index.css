@@ -85,7 +85,7 @@ h1, h2, h3, h4 {
 }
 
 .sidebar-logo img {
-    height: 35px;
+    height: 55px;
     width: auto;
 }
 
@@ -164,6 +164,7 @@ h1, h2, h3, h4 {
     box-sizing: border-box;
     overflow-x: hidden;
 }
+
 
 /* ==========================================================================
    3. COMPONENTES DE LA HOME (HERO, BOTONES Y PROPÓSITO)
@@ -443,7 +444,7 @@ h1, h2, h3, h4 {
     transition: all 0.25s ease;
     text-decoration: none !important;
     color: inherit !important;
-    min-height: 260px !important; /* Optimizado para evitar vacíos */
+    min-height: 260px !important; 
 }
 
 .explorador-card:hover {
@@ -668,11 +669,14 @@ h1, h2, h3, h4 {
     margin: 20px 0;
 }
 
+/* 🌟 CORREGIDO: Adaptación segura responsiva a ancho completo con box-sizing */
 .profile-section-block {
     background: #fdfefe;
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #eef1f4;
+    width: 100%;
+    box-sizing: border-box !important;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -819,13 +823,42 @@ h1, h2, h3, h4 {
    ========================================================================== */
 @keyframes logoScroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-250px * 9)); }
+  100% { transform: translateX(calc(-250px * 19)); } /* Ajustado dinámicamente al total de logos únicos (19) */
 }
 
-.slider { background: white; box-shadow: 0 8px 16px -5px rgba(0, 0, 0, 0.06); height: 100px; margin: 20px auto; overflow: hidden; position: relative; width: 100%; border-radius: 8px; }
-.slider .slide-track { display: flex; width: calc(250px * 14); animation: logoScroll 40s linear infinite; }
-.slider .slide { height: 100px; width: 250px; display: flex; align-items: center; justify-content: center; }
-.slider .slide img { max-width: 80%; max-height: 80%; object-fit: contain; }
+/* 🌟 CORREGIDO: Aseguramos el corte estricto del scroll horizontal para evitar desbordes */
+.slider { 
+    background: white; 
+    box-shadow: 0 8px 16px -5px rgba(0, 0, 0, 0.06); 
+    height: 100px; 
+    margin: 20px auto; 
+    overflow: hidden !important; 
+    position: relative; 
+    width: 100%; 
+    max-width: 100%;
+    border-radius: 8px; 
+}
+
+.slider .slide-track { 
+    display: flex; 
+    width: calc(250px * 38); /* Espacio calculado en memoria para la lista doble */
+    animation: logoScroll 45s linear infinite; 
+}
+
+.slider .slide { 
+    height: 100px; 
+    width: 250px; 
+    flex-shrink: 0 !important;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.slider .slide img { 
+    max-width: 80%; 
+    max-height: 80%; 
+    object-fit: contain; 
+}
 
 /* ==========================================================================
    11. PREMIUM DESIGN: BOTÓN DE MODO OSCURO GLOBAL (MocoSoft Style)
@@ -968,8 +1001,16 @@ body.dark-theme .timeline-body h3,
 body.dark-theme .team-container h2,
 body.dark-theme .explorador-header h2,
 body.dark-theme .contact-container h1,
-body.dark-theme .contact-container h2 { /* 🌟 CLAVE 1: Título de Contacto a blanco */
+body.dark-theme .contact-container h2,
+body.dark-theme .seccion-empresas-titulo,
+body.dark-theme .profile-section-block h3 { 
     color: #ffffff !important;
+}
+
+
+body.dark-theme footer {
+    color: #cbd5e1 !important;
+    border-top-color: #343e47 !important; 
 }
 
 body.dark-theme .card-individual p,
@@ -981,7 +1022,8 @@ body.dark-theme .view-profile,
 body.dark-theme .search-input,
 body.dark-theme .card-desc,
 body.dark-theme .timeline-authors p,
-body.dark-theme .timeline-desc {
+body.dark-theme .timeline-desc,
+body.dark-theme .profile-section-block p {
     color: #cbd5e1 !important;
 }
 
@@ -1101,6 +1143,26 @@ body.dark-theme .timeline-meta { border-right-color: #343e47; }
         align-items: center;
     }
 
+    /* 🌟 CORREGIDO: Forzamos a que el texto de Quiénes Somos ocupe el 100% real en teléfonos */
+    .profile-section-block {
+        padding: 30px 15px !important;
+    }
+
+    .profile-section-block p {
+        width: 100% !important;
+        margin: 0 0 15px 0 !important;
+        text-align: justify !important;
+        font-size: 1rem;
+    }
+
+    /* 🌟 CORREGIDO: Evita que la tabla de la bitácora empuje todo el Dashboard hacia la derecha */
+    .bitacora-table {
+        display: block;
+        width: 100% !important;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
     .explorador-grid {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
@@ -1163,3 +1225,37 @@ body.dark-theme .timeline-meta { border-right-color: #343e47; }
     .carousel-slide-content { flex-direction: column !important; }
     .carousel-image-container, .carousel-text-container { width: 100% !important; }
 }
+
+
+@media (max-width: 768px) {
+    /* 🌟 Contenedor principal: le damos el aire a los costados para que simule el Hero */
+    .main-home-container {
+        width: 100% !important;
+        padding: 0 5% !important; /* Margen elástico del 5% a izquierda y derecha */
+        box-sizing: border-box !important;
+    }
+
+    /* 🌟 La tarjeta blanca ahora hereda el espacio justo sin desbordar */
+    .profile-section-block {
+        width: 100% !important;
+        margin: 0 auto 25px auto !important;
+        padding: 30px 20px !important; /* Respiro interno para el texto */
+        box-sizing: border-box !important;
+        border-radius: 15px !important;
+    }
+
+    /* Forzamos a los párrafos a alinearse al ancho interno de la tarjeta */
+    .quienes-somos-texto-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .quienes-somos-texto-wrapper p {
+        width: 100% !important;
+        margin: 0 0 15px 0 !important;
+        text-align: justify !important; /* Mantiene la justificación elegante */
+        font-size: 1rem;
+    }
+}
+

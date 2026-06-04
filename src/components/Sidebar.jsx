@@ -12,7 +12,8 @@ function Sidebar({ darkMode, toggleDarkMode }) {
       <div className="sidebar-header">
         <div className="sidebar-logo">
           {/* Aseguramos la barra inicial / para que Vercel encuentre el logo */}
-          <img src="/img/logo.png" alt="Logo MocoSoft" />
+          <img src="/img/logo.png" alt="Logo MocoSoft" style={{ filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 10))' 
+            }} />
           <h2>MocoSoft</h2>
         </div>
         
@@ -61,7 +62,7 @@ function Sidebar({ darkMode, toggleDarkMode }) {
       {/* El botón de modo oscuro acompaña el flujo de la barra vertical */}
       <div className={`sidebar-theme-toggle ${menuAbierto ? 'mostrar-toggle' : ''}`}>
         <button onClick={toggleDarkMode} className="btn-theme">
-          {darkMode ? '☀️ Modo Claro' : '🌙 Modo Oscuro'}
+          {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
         </button>
       </div>
     </div>

@@ -17,15 +17,11 @@
     { "clase": "devicon-python-plain", "nombre": "Python" }
   ],
   "proyectos": [
-    { "titulo": "Sistema ERP Corporativo", "descripcion": "Desarrollo del backend completo para facturación en plataforma .NET.", "imagen": "/img/proyectos/erp.jpg" },
-    { "titulo": "API REST Node.js", "descripcion": "Microservicios optimizados para la gestión logística empresarial con autenticación JWT.", "imagen": "/img/proyectos/api.jpg" },
-    { "titulo": "Dashboard Estadístico", "descripcion": "Panel interactivo desarrollado en Angular para análisis masivo de registros de bases de datos.", "imagen": "/img/proyectos/dashboard.jpg" }
+    { "titulo": "Sistema ERP Corporativo", "descripcion": "Desarrollo del backend completo para facturación en plataforma .NET.", "imagen": "/img/proyects/sergio1.jpg" },
+    { "titulo": "API REST Node.js", "descripcion": "Microservicios optimizados para la gestión logística empresarial con autenticación JWT.", "imagen": "/img/proyects/sergio2.jpg" },
+    { "titulo": "Dashboard Estadístico", "descripcion": "Panel interactivo desarrollado en Angular para análisis masivo de registros de bases de datos.", "imagen": "/img/proyects/sergio3.jpg" }
   ],
-  "social": {
-    "linkedin": "https://linkedin.com",
-    "github": "https://github.com",
-    "twitter": "https://twitter.com"
-  },
+ 
   "peliculas": [
     {
       "titulo": "2001, Una Odisea en el Espacio",

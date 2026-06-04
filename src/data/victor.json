@@ -17,15 +17,10 @@
     { "clase": "devicon-git-plain", "nombre": "Git" }
   ],
   "proyectos": [
-    { "titulo": "Auditoría de Resguardos", "descripcion": "Estrategia e implementación de políticas robustas para la integridad de datos críticos corporativos.", "imagen": "/img/proyectos/resguardo.jpg" },
-    { "titulo": "Data Tracker Mobile", "descripcion": "Aplicación nativa en Kotlin para el monitoreo y envío seguro de métricas técnicas de servidores.", "imagen": "/img/proyectos/tracker.jpg" },
-    { "titulo": "Plan de Contingencia TI", "descripcion": "Diseño de infraestructura segura contra pérdidas imprevistas de información y fallas críticas de energía.", "imagen": "/img/proyectos/contingencia.jpg" }
+    { "titulo": "Auditoría de Resguardos", "descripcion": "Estrategia e implementación de políticas robustas para la integridad de datos críticos corporativos.", "imagen": "/img/proyects/victor1.jpg" },
+    { "titulo": "Data Tracker Mobile", "descripcion": "Aplicación nativa en Kotlin para el monitoreo y envío seguro de métricas técnicas de servidores.", "imagen": "/img/proyects/victor2.jpg" },
+    { "titulo": "Plan de Contingencia TI", "descripcion": "Diseño de infraestructura segura contra pérdidas imprevistas de información y fallas críticas de energía.", "imagen": "/img/proyects/victor3.jpg" }
   ],
-  "social": {
-    "linkedin": "https://linkedin.com",
-    "github": "https://github.com",
-    "twitter": "https://twitter.com"
-  },
   "peliculas": [
     {
       "titulo": "El Padrino",
