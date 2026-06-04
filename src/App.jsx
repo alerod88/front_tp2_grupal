@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import Explorador from './pages/Explorador';
@@ -27,6 +28,8 @@ function App() {
 
   return (
     <Router>
+      {/* 🌟 Al ponerlo acá, escucha de forma global cualquier cambio de página */}
+      <ScrollToTop />
       
       <div className={`dashboard-layout ${darkMode ? 'dark-theme' : ''}`}>
         
