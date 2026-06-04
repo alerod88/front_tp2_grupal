@@ -40,5 +40,11 @@
     "actividad": "Formulario con Formspree, control de fallos, retoques visuales y entrega.",
     "integrantes": "Alejandro, Víctor, Sergio",
     "resultado": "Alejandro conectó el formulario de contacto con la API de Formspree para recibir los mensajes en el mail. Víctor automatizó el carrusel para que pase solo y agregó el brillo circular en las fotos de perfil. Expandimos el ancho de las páginas para que no quede espacio vacío a los costados y dejamos el proyecto listo."
+  },
+  {
+    "fecha": "03/06/2026",
+    "actividad": "Depuración de código muerto, reemplazo de API externa y optimización responsiva general.",
+    "integrantes": "Víctor, Sergio, Alejandro",
+    "resultado": "Eliminamos el módulo viejo de API Externa para dar de alta la nueva sección 'Noticias Tech', integrando con éxito el consumo asíncrono desde la API de Dev.to. Refactorizamos las vistas del Explorador JSON y la Bitácora migrando a grillas elásticas y centradas que aprovechan el ancho completo de la pantalla. Finalmente, ajustamos los estilos responsivos del Sidebar vertical para que en dispositivos móviles funcione como un menú flotante deslizable desde la izquierda."
   }
 ]

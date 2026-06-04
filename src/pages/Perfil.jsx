@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 import datosAlejandro from '../data/alejandro.json';
 import datosSergio from '../data/sergio.json';
 import datosVictor from '../data/victor.json';
-import ToggleButton from '../components/ToggleButton';
 
 const perfiles = {
   alejandro: datosAlejandro,
@@ -12,12 +11,10 @@ const perfiles = {
   victor: datosVictor
 };
 
-function Perfil() {
+// 1. Recibimos darkMode y toggleDarkMode desde las props globales
+function Perfil({ darkMode }) {
   const { id } = useParams();
   const navigate = useNavigate();
-  
-  // 🌙 Estado para el Modo Oscuro Integral
-  const [darkMode, setDarkMode] = useState(false);
   
   // 🎢 Estados para el Carrusel de Proyectos con Deslizamiento
   const [indexProyecto, setIndexProyecto] = useState(0);
@@ -67,15 +64,8 @@ function Perfil() {
     iniciarAutoplay();
   };
 
-  // Inyección de la clase dark-theme en el BODY de la web
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark-theme');
-    } else {
-      document.body.classList.remove('dark-theme');
-    }
-    return () => document.body.classList.remove('dark-theme');
-  }, [darkMode]);
+  // Nota: Eliminamos el useEffect que inyectaba 'dark-theme' al body acá, 
+  // ya que ahora lo maneja de manera centralizada el App.jsx.
 
   // Inyección dinámica del CDN de Devicon para los iconos del Stack
   useEffect(() => {
@@ -99,6 +89,7 @@ function Perfil() {
 
   return (
     <div className="profile-container">
+      {/* 2. Sigue leyendo la prop global de darkMode para aplicar estilos locales opcionales */}
       <div className={`card-individual ${darkMode ? 'perfil-dark' : ''}`}>
         
         {/* ✨ FOTO DE PERFIL CIRCULAR CON EFECTO DE DESTELLO RECORTADO */}
@@ -214,13 +205,12 @@ function Perfil() {
 
         </div>
 
-        {/* 🔘 COMPONENTE REUTILIZABLE DEL BOTÓN MODO OSCURO */}
-        <ToggleButton isDark={darkMode} onToggle={() => setDarkMode(!darkMode)} />
         
-        {/* 🚀 BOTÓN DE VOLVER REESTILIZADO SIN TEXTO RECTANGULAR ASIMÉTRICO */}
+        
+        {/* BOTÓN VOLVER */}
         <div className="back-button-container">
           <button className="btn-secondary" onClick={() => navigate('/')}>
-            ← Volver al Dashboard
+            Volver a Inicio
           </button>
         </div>
       </div>

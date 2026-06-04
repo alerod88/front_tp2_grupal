@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-function Sidebar() {
+function Sidebar({ darkMode, toggleDarkMode }) {
   // Estado para controlar si el menú está abierto o cerrado en celulares
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   return (
-    <div className="sidebar">
+    /* 🌟 CLAVE: Le agregamos la clase dinámica al contenedor principal de la sidebar */
+    <div className={`sidebar ${menuAbierto ? 'mostrar' : ''}`}>
+      
       <div className="sidebar-header">
         <div className="sidebar-logo">
           {/* Aseguramos la barra inicial / para que Vercel encuentre el logo */}
@@ -20,9 +22,7 @@ function Sidebar() {
         </button>
       </div>
       
-      {/* CLAVE RESPONSIVE: Si menuAbierto es true, se le agrega la clase 'mostrar'.
-        Además, al hacer clic en cualquier link, el menú se cierra solo (setMenuAbierto(false))
-      */}
+      {/* Al hacer clic en cualquier link, seteamos menuAbierto en false para que se vuelva a esconder solo */}
       <nav 
         className={`sidebar-menu ${menuAbierto ? 'mostrar' : ''}`} 
         onClick={() => setMenuAbierto(false)}
@@ -36,9 +36,11 @@ function Sidebar() {
         <NavLink to="/explorador" className={({ isActive }) => isActive ? 'active' : ''}>
           Explorador JSON
         </NavLink>
-        <NavLink to="/api" className={({ isActive }) => isActive ? 'active' : ''}>
-          API Externa
+        
+        <NavLink to="/noticias" className={({ isActive }) => isActive ? 'active' : ''}>
+          News Tech
         </NavLink>
+
         <NavLink to="/contacto" className={({ isActive }) => isActive ? 'active' : ''}>
           Contacto
         </NavLink>
@@ -55,6 +57,13 @@ function Sidebar() {
           • Alejandro Rodriguez
         </NavLink>
       </nav>
+
+      {/* El botón de modo oscuro acompaña el flujo de la barra vertical */}
+      <div className={`sidebar-theme-toggle ${menuAbierto ? 'mostrar-toggle' : ''}`}>
+        <button onClick={toggleDarkMode} className="btn-theme">
+          {darkMode ? '☀️ Modo Claro' : '🌙 Modo Oscuro'}
+        </button>
+      </div>
     </div>
   );
 }

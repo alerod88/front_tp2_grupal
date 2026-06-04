@@ -1,9 +1,11 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { useNavigate } from 'react-router-dom'; // 1. Importamos useNavigate
 
 function Contacto() {
   // Configurado con tu ID de formulario real
   const [state, handleSubmit] = useForm("xnjyazaq");
+  const navigate = useNavigate(); // 2. Inicializamos el hook de navegación
 
   // Mensaje de éxito al enviar
   if (state.succeeded) {
@@ -11,9 +13,16 @@ function Contacto() {
       <div className="contact-container">
         <div className="contact-form" style={{ textAlign: 'center', padding: '50px 30px' }}>
           <h2 style={{ color: 'var(--accent)', marginBottom: '15px' }}>¡Mensaje Enviado!</h2>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text)' }}>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text)', marginBottom: '25px' }}>
             Gracias por comunicarte con <strong>MocoSoft</strong>. Nuestro equipo técnico revisará tu consulta y te responderá a la brevedad.
           </p>
+          
+          {/* Botón Volver en la pantalla de Éxito */}
+          <div className="back-button-container">
+            <button className="btn-secondary" onClick={() => navigate('/')}>
+              ← Volver al Dashboard
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -47,7 +56,7 @@ function Contacto() {
           />
         </div>
 
-        {/* Campo: Asunto (¡Nuevo!) */}
+        {/* Campo: Asunto */}
         <div style={{ textAlign: 'left', width: '100%' }}>
           <label htmlFor="subject" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
             Asunto
@@ -90,6 +99,16 @@ function Contacto() {
           {state.submitting ? 'Enviando...' : 'Enviar Consulta'}
         </button>
       </form>
+
+      
+
+      {/* BOTÓN VOLVER */}
+        <div className="back-button-container">
+          <button className="btn-secondary" onClick={() => navigate('/')}>
+            Volver a Inicio
+          </button>
+        </div>
+
     </div>
   );
 }

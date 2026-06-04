@@ -1,0 +1,21 @@
+[
+  { "nombre": "Intel", "archivo": "LogoIntel.png" },
+  { "nombre": "Ford", "archivo": "LogoFord.png" },
+  { "nombre": "Gigabyte", "archivo": "LogoGigabyte.png" },
+  { "nombre": "MSI", "archivo": "LogoMSI.png" },
+  { "nombre": "MSI Gaming", "archivo": "LogoMSI2.png" },
+  { "nombre": "Coca Cola", "archivo": "LogoCocaCola.png" },
+  { "nombre": "Asus", "archivo": "LogoAsus.png" },
+  { "nombre": "AMD", "archivo": "LogoAMD.png" },
+  { "nombre": "EVGA", "archivo": "LogoEVGA.png" },
+  { "nombre": "nVidia", "archivo": "LogonVidia.png" },
+  { "nombre": "nVidia 1", "archivo": "LogonVidia1.png" },
+  { "nombre": "nVidia 3", "archivo": "LogonVidia3.png" },
+  { "nombre": "Arcor", "archivo": "LogoArcor.png" },
+  { "nombre": "ROG", "archivo": "LogoROG.png" },
+  { "nombre": "Adidas", "archivo": "LogoAdidas.png" },
+  { "nombre": "Western Digital", "archivo": "LogoWD.png" },
+  { "nombre": "AlienWare", "archivo": "LogoAlienWare.png" },
+  { "nombre": "Thermaltake", "archivo": "LogoThermaltake.png" },
+  { "nombre": "XfX", "archivo": "LogoXfX.png" }
+]

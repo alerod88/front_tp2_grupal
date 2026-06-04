@@ -1,46 +1,58 @@
+import { useState, useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import Explorador from './pages/Explorador';
 import Bitacora from './pages/Bitacora';
 import Perfil from './pages/Perfil';
-import ApiExterna from './pages/ApiExterna';
 import Contacto from './pages/Contacto';
-
+import ApiNoticias from './pages/ApiNoticias'; 
 
 function App() {
+  
+  const [darkMode, setDarkMode] = useState(false);
+
+  
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <Router>
-      {/* Contenedor general del Dashboard */}
-      <div className="dashboard-layout">
+      
+      <div className={`dashboard-layout ${darkMode ? 'dark-theme' : ''}`}>
         
-        {/* La Sidebar se queda fija a la izquierda */}
-        <Sidebar />
+        
+        <Sidebar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-        {/* El contenido de la derecha cambia según la ruta */}
+        
         <div className="dashboard-content">
           <Routes>
             {/* 1. Ruta de Inicio */}
             <Route path="/" element={<Home />} />
             
-            {/* 2. Ruta del Explorador (La metemos acá adentro) */}
+            {/* 2. Ruta del Explorador */}
             <Route path="/explorador" element={<Explorador />} />
 
-            {/* 3. Bitacpra*/}
+            {/* 3. Bitácora */}
             <Route path="/bitacora" element={<Bitacora />} />
 
-            {/* 4. Perfil*/}
-            <Route path="/perfil/:id" element={<Perfil />} />
+            {/* 4. Perfil */}
+            <Route path="/perfil/:id" element={<Perfil darkMode={darkMode} />} />
 
-            {/* 5. ApiExterna*/}
-            <Route path="/api" element={<ApiExterna />} />
+            {/* 5. Novedades / Noticias Tech */}
+            <Route path="/noticias" element={<ApiNoticias />} />
 
             {/* 6. Contacto */}
             <Route path="/contacto" element={<Contacto />} />
-            
-            
-            {/*  */}
-            {/*  */}
           </Routes>
 
           <footer>
