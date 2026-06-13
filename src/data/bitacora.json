@@ -1,9 +1,15 @@
 [
   {
-    "fecha": "12/05/2026",
-    "actividad": "Reunión de inicio y definición de cómo armar el proyecto.",
+    "fecha": "08/05/2026",
+    "actividad": "Planificación inicial, metodología ágil y estrategia de control de versiones.",
     "integrantes": "Alejandro, Sergio, Víctor",
-    "resultado": "Definimos de qué va a tratar MocoSoft. Acordamos usar React Router Dom para armar la SPA y guardar los datos de cada uno en archivos JSON separados para que el código quede ordenado."
+    "resultado": "Establecemos el espacio de trabajo grupal. Implementamos un tablero en Trello bajo metodología Kanban (Backlog, En Proceso, Revisión, Hecho) para la asignación de tareas. Adoptamos el flujo de trabajo GitFlow en GitHub, definiendo la rama 'main' como entorno estable de producción, e hilos de desarrollo independientes ('feature branches') para cada integrante para garantizar una integración limpia del código."
+  },
+  {
+    "fecha": "12/05/2026",
+    "actividad": "Reunión de inicio, debate técnico y justificación de migración arquitectural.",
+    "integrantes": "Alejandro, Sergio, Víctor",
+    "resultado": "Definimos el modelo de negocio de MocoSoft. Justificamos formalmente la migración de HTML/JS Vanilla (TP1) hacia React, fundamentándonos en la necesidad de crear una Single Page Application (SPA) con React Router Dom para una navegación instantánea, optimizar el rendimiento mediante el uso del Virtual DOM, y explotar la modularización de la interfaz a través de componentes reactivos reutilizables alimentados por estructuras JSON independientes."
   },
   {
     "fecha": "15/05/2026",

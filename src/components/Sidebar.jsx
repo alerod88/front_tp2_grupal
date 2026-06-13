@@ -46,8 +46,17 @@ function Sidebar({ darkMode, toggleDarkMode }) {
           Contacto
         </NavLink>
 
-        <div className="sidebar-section-title">Integrantes</div>
         
+        
+        
+        <NavLink to="/galeria" className={({ isActive }) => isActive ? "active" : ""}>
+          Galería Interactiva
+        </NavLink>
+        <NavLink to="/arbol" className={({ isActive }) => isActive ? "active" : ""}>
+          Árbol de Renderizado
+        </NavLink>
+        
+        <div className="sidebar-section-title">Integrantes</div>
         <NavLink to="/perfil/sergio" className={({ isActive }) => isActive ? 'active sublink' : 'sublink'}>
           • Sergio Galván
         </NavLink>
@@ -57,6 +66,7 @@ function Sidebar({ darkMode, toggleDarkMode }) {
         <NavLink to="/perfil/alejandro" className={({ isActive }) => isActive ? 'active sublink' : 'sublink'}>
           • Alejandro Rodriguez
         </NavLink>
+
       </nav>
 
       {/* El botón de modo oscuro acompaña el flujo de la barra vertical */}

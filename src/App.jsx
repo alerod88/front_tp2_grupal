@@ -8,6 +8,8 @@ import Bitacora from './pages/Bitacora';
 import Perfil from './pages/Perfil';
 import Contacto from './pages/Contacto';
 import ApiNoticias from './pages/ApiNoticias'; 
+import Galeria from './pages/Galeria';
+import Arbol from './pages/Arbol';
 
 function App() {
   
@@ -29,7 +31,7 @@ function App() {
   return (
     <Router>
       {/* 🌟 Al ponerlo acá, escucha de forma global cualquier cambio de página */}
-      <ScrollToTop />
+      <ScrollToTop /> 
       
       <div className={`dashboard-layout ${darkMode ? 'dark-theme' : ''}`}>
         
@@ -56,6 +58,9 @@ function App() {
 
             {/* 6. Contacto */}
             <Route path="/contacto" element={<Contacto />} />
+
+            <Route path="/galeria" element={<Galeria />} />
+            <Route path="/arbol" element={<Arbol />} />
           </Routes>
 
           <footer>
