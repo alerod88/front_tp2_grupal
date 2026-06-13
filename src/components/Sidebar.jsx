@@ -42,15 +42,13 @@ function Sidebar({ darkMode, toggleDarkMode }) {
           News Tech
         </NavLink>
 
-        <NavLink to="/contacto" className={({ isActive }) => isActive ? 'active' : ''}>
-          Contacto
-        </NavLink>
+        
 
         
         
         
         <NavLink to="/galeria" className={({ isActive }) => isActive ? "active" : ""}>
-          Galería Interactiva
+          Galería de Trabajos
         </NavLink>
         <NavLink to="/arbol" className={({ isActive }) => isActive ? "active" : ""}>
           Árbol de Renderizado
@@ -65,6 +63,11 @@ function Sidebar({ darkMode, toggleDarkMode }) {
         </NavLink>
         <NavLink to="/perfil/alejandro" className={({ isActive }) => isActive ? 'active sublink' : 'sublink'}>
           • Alejandro Rodriguez
+        </NavLink>
+
+
+        <NavLink to="/contacto" className={({ isActive }) => isActive ? 'active' : ''}>
+          Contacto
         </NavLink>
 
       </nav>
