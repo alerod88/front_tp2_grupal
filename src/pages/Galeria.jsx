@@ -48,12 +48,13 @@ function Galeria() {
 
   return (
     <div className="dashboard-content">
+      {/* 🌟 ENVOLTORIO MAESTRO: Centrado y elástico idéntico a la bitácora */}
       <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
         <h2>Galería de Imágenes Interactiva</h2>
         <p>Visualizador dinámico con entorno Lightbox adaptativo para la presentación de recursos de la empresa.</p>
 
-        {/* Grid elástica */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px', width: '100%', marginTop: '20px' }}>
+        {/* Grid elástica alineada al contenedor */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '30px', width: '100%', marginTop: '20px' }}>
           {imagenesGaleria.map((img, index) => (
             <div 
               key={img.id} 
