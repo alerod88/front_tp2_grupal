@@ -1,18 +1,41 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Arbol() {
-  return (
-    <div className="dashboard-content">
-      <div className="profile-section-block">
-        <h2>Árbol de Renderizado</h2>
-        <p>Estructura jerárquica de la arquitectura de componentes de la Single Page Application.</p>
+  const navigate = useNavigate();
 
-        <div className="card" style={{ textAlign: 'left', fontFamily: 'monospace', backgroundColor: '#1a1d20', color: '#a0a6b5', width: '100%', marginTop: '20px' }}>
-          <h3 style={{ color: '#00b894', borderBottom: '1px solid #343e47', paddingBottom: '10px', marginBottom: '15px' }}>🌳 Component Tree Structure</h3>
-          
-          <pre style={{ fontSize: '0.95rem', lineHeight: '1.6', margin: 0, whiteSpace: 'pre-wrap', color: '#cbd5e1' }}>
-{`App (Raíz de la Aplicación)
+  return (
+    <div className="explorador-container">
+      {/* Cabecera idéntica a la sección de Noticias y Galería */}
+      <div className="explorador-header">
+        <div>
+          <h2>Árbol de Renderizado</h2>
+          <p>Estructura jerárquica de la arquitectura de componentes de la Single Page Application.</p>
+        </div>
+      </div>
+
+      {/* Contenedor adaptado que usa la estética oscura pero con márgenes y responsive limpios */}
+      <div 
+        className="shiny-effect" 
+        style={{
+          margin: 0,
+            padding: '10px 5px 10px 15px',
+            fontFamily: 'monospace',
+            fontSize: '0.9rem',
+            lineHeight: '1.6',
+            overflowX: 'auto', /* El scroll se genera acá adentro, no en la pantalla */
+            whiteSpace: 'pre',
+            display: 'block',
+            width: '100%',
+            boxSizing: 'border-box',
+            borderLeft: '3px solid #334155'
+        }}
+      >
+        <span style={{ color: '#4ade80', fontWeight: 'bold', display: 'block', marginBottom: '15px' }}>
+          🌲 Component Tree Structure
+        </span>
+
+        {`App (Raíz de la Aplicación)
 └── BrowserRouter (Manejador de Historial y Rutas)
     └── div.dashboard-layout (Layout Estructural)
         ├── Sidebar (Navegación Vertical Fija)
@@ -25,16 +48,17 @@ function Arbol() {
             └── Routes (Intercambiador Dinámico de Vistas)
                 ├── Route (/) -> Home
                 ├── Route (/perfil/:id) -> Perfil
-                ├── Route (/bitacora) -> Bitacora
+                ├── Route (/bitacora) -> Bitácora
                 ├── Route (/explorador) -> Explorador
                 ├── Route (/galeria) -> Galeria
                 └── Route (/arbol) -> Arbol`}
-          </pre>
-        </div>
+      </div>
 
-        <div className="back-button-container" style={{ marginTop: '30px', width: '100%', textAlign: 'left' }}>
-          <Link to="/" className="btn-secondary">← Volver al Inicio</Link>
-        </div>
+      {/* BOTÓN VOLVER IDÉNTICO */}
+      <div className="back-button-container">
+        <button className="btn-secondary" onClick={() => navigate('/')}>
+          Volver a Inicio
+        </button>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
     "fecha": "08/05/2026",
     "actividad": "Planificación inicial, metodología ágil y estrategia de control de versiones.",
     "integrantes": "Alejandro, Sergio, Víctor",
-    "resultado": "Establecemos el espacio de trabajo grupal. Implementamos un tablero en Trello bajo metodología Kanban (Backlog, En Proceso, Revisión, Hecho) para la asignación de tareas. Adoptamos el flujo de trabajo GitFlow en GitHub, definiendo la rama 'main' como entorno estable de producción, e hilos de desarrollo independientes ('feature branches') para cada integrante para garantizar una integración limpia del código."
+    "resultado": "Establecemos el espacio de trabajo grupal. Implementamos un tablero en Trello bajo metodología Kanban (Backlog, En Proceso, Revisión, Hecho) para la asignación y el seguimiento transparente de todas las tareas del proyecto grupal."
   },
   {
     "fecha": "12/05/2026",
@@ -52,5 +52,29 @@
     "actividad": "Depuración de código muerto, reemplazo de API externa y optimización responsiva general.",
     "integrantes": "Víctor, Sergio, Alejandro",
     "resultado": "Eliminamos el módulo viejo de API Externa para dar de alta la nueva sección 'Noticias Tech', integrando con éxito el consumo asíncrono desde la API de Dev.to. Refactorizamos las vistas del Explorador JSON y la Bitácora migrando a grillas elásticas y centradas que aprovechan el ancho completo de la pantalla. Finalmente, ajustamos los estilos responsivos del Sidebar vertical para que en dispositivos móviles funcione como un menú flotante deslizable desde la izquierda."
+  },
+  {
+    "fecha": "11/06/2026",
+    "actividad": "Refactorización estructural del portafolio y desacoplamiento de la Galería.",
+    "integrantes": "Sergio, Alejandro",
+    "resultado": "Evolucionamos la sección de proyectos eliminando el harcodeo estructural. Creamos el archivo proyectos.json para manejar la información de forma externa e implementamos una arquitectura Grid elástica clonada del módulo de noticias, homogeneizando la estética visual del sitio."
+  },
+  {
+    "fecha": "11/06/2026",
+    "actividad": "Optimización responsive del Lightbox interactivo de la Galería.",
+    "integrantes": "Alejandro, Víctor",
+    "resultado": "Detectamos problemas de desborde y posicionamiento de las flechas del Lightbox en pantallas verticales de teléfonos móviles. Corregimos los estilos inline forzando un Flexbox vertical, limitando la altura máxima a 55vh y aplicando posicionamiento absoluto flotante sobre los controles para garantizar una experiencia UX fluida en celulares."
+  },
+  {
+    "fecha": "12/06/2026",
+    "actividad": "Maquetado responsive y blindaje del Árbol de Renderizado.",
+    "integrantes": "Víctor, Sergio",
+    "resultado": "Migramos el esquema del árbol de directorios a las clases CSS comunes del explorador de contenedores. Para solucionar el recorte de caracteres en dispositivos móviles, encapsulamos la estructura jerárquica dentro de un bloque preformateado con desbordamiento horizontal controlado (overflow-X: auto), previniendo roturas visuales de la interfaz."
+  },
+  {
+    "fecha": "13/06/2026",
+    "actividad": "Control de calidad de layouts, centrado general, actualización de Trello y despliegue final.",
+    "integrantes": "Alejandro, Sergio, Víctor",
+    "resultado": "Realizamos la auditoría final de diseño unificando los márgenes, paddings de contención y el centrado elástico de todas las vistas del dashboard en localhost. Sincronizamos las tareas del Sprint en el tablero de Trello bajo metodología Kanban y realizamos el push definitivo a la rama principal de GitHub, asegurando el despliegue exitoso de las correcciones en producción a través de Vercel."
   }
 ]

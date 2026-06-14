@@ -1,0 +1,44 @@
+[
+  { 
+    "id": 1, 
+    "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600", 
+    "titulo": "E-Commerce Extremo", 
+    "desc": "Desarrollo de una plataforma de ventas masivas con pasarela de pagos integrada y carga elástica de productos.",
+    "tag": "Fullstack"
+  },
+  { 
+    "id": 2, 
+    "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600", 
+    "titulo": "Dashboard Analytics Pro", 
+    "desc": "Panel de control inteligente para el seguimiento de métricas comerciales en tiempo real con filtrado indexado de datos.",
+    "tag": "React / Data"
+  },
+  { 
+    "id": 3, 
+    "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600", 
+    "titulo": "SGE - Gestión Escolar", 
+    "desc": "Sistema integral en la nube para instituciones educativas, administrando legajos, asistencia y árboles de calificaciones.",
+    "tag": "Cloud / App"
+  },
+  { 
+    "id": 4, 
+    "url": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600", 
+    "titulo": "Fintech Wallet App", 
+    "desc": "Aplicación móvil de finanzas personales con cotización de divisas en vivo, control de gastos y generación de reportes.",
+    "tag": "Mobile / UI"
+  },
+  { 
+    "id": 5, 
+    "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600", 
+    "titulo": "CRM Corporativo Corporativo", 
+    "desc": "Plataforma a medida para la gestión de relaciones con clientes, automatización de embudos de venta y soporte técnico.",
+    "tag": "SaaS / Business"
+  },
+  { 
+    "id": 6, 
+    "url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600", 
+    "titulo": "Logística Inteligente", 
+    "desc": "Módulo de geolocalización y ruteo optimizado para flotas de distribución con actualización de estados asíncrona.",
+    "tag": "Geoloc"
+  }
+]

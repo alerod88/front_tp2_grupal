@@ -1,49 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-// Banco de proyectos reales realizados por MocoSoft Solutions
-const trabajosMocoSoft = [
-  { 
-    id: 1, 
-    url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600', 
-    titulo: 'E-Commerce Extremo', 
-    desc: 'Desarrollo de una plataforma de ventas masivas con pasarela de pagos integrada y carga elástica de productos.' 
-  },
-  { 
-    id: 2, 
-    url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600', 
-    titulo: 'Dashboard Analytics Pro', 
-    desc: 'Panel de control inteligente para el seguimiento de métricas comerciales en tiempo real con filtrado indexado de datos.' 
-  },
-  { 
-    id: 3, 
-    url: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600', 
-    titulo: 'SGE - Gestión Escolar', 
-    desc: 'Sistema integral en la nube para instituciones educativas, administrando legajos, asistencia y árboles de calificaciones.' 
-  },
-  { 
-    id: 4, 
-    url: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600', 
-    titulo: 'Fintech Wallet App', 
-    desc: 'Aplicación móvil de finanzas personales con cotización de divisas en vivo, control de gastos y generación de reportes.' 
-  },
-  { 
-    id: 5, 
-    url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600', 
-    titulo: 'CRM Corporativo corporativo', 
-    desc: 'Plataforma a medida para la gestión de relaciones con clientes, automatización de embudos de venta y soporte técnico.' 
-  },
-  { 
-    id: 6, 
-    url: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600', 
-    titulo: 'Logística Inteligente', 
-    desc: 'Módulo de geolocalización y ruteo optimizado para flotas de distribución con actualización de estados asíncrona.' 
-  }
-];
+// 1. IMPORTAMOS EL ARCHIVO JSON DIRECTAMENTE
+import trabajosMocoSoft from '../data/proyectos.json'; 
 
 function Galeria() {
   const [modalImagen, setModalImagen] = useState(null);
   const [indiceActual, setIndiceActual] = useState(0);
+  const navigate = useNavigate();
 
   const abrirLightbox = (imagen, index) => {
     setModalImagen(imagen);
@@ -77,69 +41,130 @@ function Galeria() {
   }, [modalImagen, indiceActual]);
 
   return (
-    <div className="dashboard-content">
-      {/* Envoltorio que comparte la misma clase y estructura visual que tus perfiles */}
-      <div className="profile-section-block">
-        <h2>Galería de Trabajos Realizados</h2>
-        <p style={{ marginBottom: '30px', color: 'var(--text)' }}>
-          Portafolio oficial de soluciones digitales y sistemas robustos puestos en producción por el equipo de MocoSoft.
-        </p>
-
-        {/* Grilla simétrica perfectamente alineada */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '25px', width: '100%' }}>
-          {trabajosMocoSoft.map((trabajo, index) => (
-            <div 
-              key={trabajo.id} 
-              className="card shiny-effect" 
-              style={{ padding: '0', overflow: 'hidden', cursor: 'pointer', minHeight: 'auto' }}
-              onClick={() => abrirLightbox(trabajo, index)}
-            >
-              <img 
-                src={trabajo.url} 
-                alt={trabajo.titulo} 
-                style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }} 
-              />
-              <div style={{ padding: '20px', textAlign: 'left' }}>
-                <h4 style={{ margin: 0, fontSize: '1.15rem', color: 'var(--primary)' }}>{trabajo.titulo}</h4>
-                <p style={{ margin: '8px 0 0 0', fontSize: '0.85rem', color: 'var(--text)', lineHeight: '1.5' }}>
-                  {trabajo.desc}
-                </p>
-              </div>
-            </div>
-          ))}
+    <div className="explorador-container">
+      <div className="explorador-header">
+        <div>
+          <h2>Galería Interactiva de Trabajos</h2>
+          <p>Portafolio oficial de soluciones digitales y sistemas robustos puestos en producción por el equipo de MocoSoft.</p>
         </div>
+      </div>
 
-        {/* INTERFAZ DEL LIGHTBOX INTERACTIVO (CONSIGNAS OBLIGATORIAS) */}
-        {modalImagen && (
+      <div className="explorador-grid">
+        {/* 2. LA GRILLA SIGUE FUNCIONANDO EXACTAMENTE IGUAL */}
+        {trabajosMocoSoft.map((trabajo, index) => (
           <div 
-            onClick={cerrarLightbox}
-            style={{
-              position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
-              backgroundColor: 'rgba(0,0,0,0.9)', zIndex: 9999, display: 'flex',
-              flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
-            }}
+            key={trabajo.id} 
+            className="explorador-card shiny-effect"
+            onClick={() => abrirLightbox(trabajo, index)}
+            style={{ cursor: 'pointer' }}
           >
-            {/* Botón de cierre */}
-            <button onClick={cerrarLightbox} style={{ position: 'absolute', top: '20px', right: '30px', background: 'none', border: 'none', color: 'white', fontSize: '2.5rem', cursor: 'pointer' }}>×</button>
-            
-            {/* Contenedor de navegación interna */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', maxWidth: '95%', maxHeight: '75vh' }}>
-              <button onClick={retroceder} style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: 'white', fontSize: '2rem', width: '50px', height: '50px', borderRadius: '50%', cursor: 'pointer' }}>‹</button>
-              <img src={modalImagen.url} alt={modalImagen.titulo} style={{ maxHeight: '70vh', maxWidth: '100%', objectFit: 'contain', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} />
-              <button onClick={avanzar} style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: 'white', fontSize: '2rem', width: '50px', height: '50px', borderRadius: '50%', cursor: 'pointer' }}>›</button>
+            <img 
+              src={trabajo.url} 
+              alt={trabajo.titulo} 
+              style={{ width: '100%', height: '140px', objectFit: 'cover', borderRadius: '8px', marginBottom: '5px' }} 
+            />
+
+            <div className="card-top" style={{ marginTop: '10px' }}>
+              <span className="badge badge-frontend">
+                {trabajo.tag}
+              </span>
+              <span style={{ fontSize: '0.8rem', color: '#888' }}>
+                ⭐ Proyecto Destacado
+              </span>
             </div>
 
-            <div style={{ color: 'white', marginTop: '15px', textAlign: 'center', padding: '0 20px' }}>
-              <h3 style={{ color: 'white', margin: 0 }}>{modalImagen.titulo}</h3>
-              <p style={{ color: '#cbd5e1', margin: '5px 0 0 0', fontSize: '0.9rem' }}>{modalImagen.desc} (ESC para salir)</p>
+            <h3>{trabajo.titulo}</h3>
+            <p className="card-desc">{trabajo.desc}</p>
+            
+            <div className="card-meta" style={{ display: 'flex', alignItems: 'center', gap: '8px', borderTop: '1px solid #edf2f7', paddingTop: '10px', marginTop: 'auto' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text)', fontWeight: '500' }}>💻 Desarrollado por MocoSoft</span>
+            </div>
+
+            <div className="view-profile">
+              Ampliar Galería 🔍
             </div>
           </div>
-        )}
+        ))}
+      </div>
 
-        {/* Botón de retorno consistente */}
-        <div className="back-button-container" style={{ marginTop: '40px', width: '100%', textAlign: 'left' }}>
-          <Link to="/" className="btn-secondary">← Volver al Inicio</Link>
+      {/* INTERFAZ DEL LIGHTBOX INTERACTIVO (RESPONSIVE) */}
+      {modalImagen && (
+        <div 
+          onClick={cerrarLightbox}
+          style={{
+            position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+            backgroundColor: 'rgba(0,0,0,0.95)', zIndex: 9999, display: 'flex',
+            flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            padding: '10px'
+          }}
+        >
+          <button 
+            onClick={cerrarLightbox} 
+            style={{ 
+              position: 'absolute', top: '15px', right: '20px', background: 'rgba(255,255,255,0.1)', 
+              border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer',
+              width: '40px', height: '40px', borderRadius: '50%', display: 'flex', 
+              alignItems: 'center', justifyContent: 'center', zIndex: 10000
+            }}
+          >
+            ×
+          </button>
+          
+          <div style={{ 
+            position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            width: '100%', maxWidth: '800px', maxHeight: '60vh', marginTop: '40px'
+          }}>
+            <button 
+              onClick={retroceder} 
+              style={{ 
+                position: 'absolute', left: '10px', background: 'rgba(0,0,0,0.6)', 
+                border: '1px solid rgba(255,255,255,0.3)', color: 'white', fontSize: '1.5rem', 
+                width: '44px', height: '44px', borderRadius: '50%', cursor: 'pointer', zIndex: 10
+              }}
+            >
+              ‹
+            </button>
+
+            <img 
+              src={modalImagen.url} 
+              alt={modalImagen.titulo} 
+              style={{ 
+                maxHeight: '55vh', maxWidth: '100%', objectFit: 'contain', 
+                borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' 
+              }} 
+            />
+
+            <button 
+              onClick={avanzar} 
+              style={{ 
+                position: 'absolute', right: '10px', background: 'rgba(0,0,0,0.6)', 
+                border: '1px solid rgba(255,255,255,0.3)', color: 'white', fontSize: '1.5rem', 
+                width: '44px', height: '44px', borderRadius: '50%', cursor: 'pointer', zIndex: 10
+              }}
+            >
+              ›
+            </button>
+          </div>
+
+          <div style={{ 
+            color: 'white', marginTop: '20px', textAlign: 'center', 
+            padding: '0 15px', maxWidth: '500px' 
+          }}>
+            <h3 style={{ color: 'white', margin: '0 0 5px 0', fontSize: '1.2rem' }}>{modalImagen.titulo}</h3>
+            <p style={{ color: '#cbd5e1', margin: 0, fontSize: '0.85rem', lineHeight: '1.4' }}>
+              {modalImagen.desc}
+            </p>
+            <span style={{ display: 'block', color: '#64748b', fontSize: '0.75rem', marginTop: '8px' }}>
+              (Toca los lados para navegar • ESC para salir)
+            </span>
+          </div>
         </div>
+      )}
+
+      <div className="back-button-container">
+        <button className="btn-secondary" onClick={() => navigate('/')}>
+          Volver a Inicio
+        </button>
       </div>
     </div>
   );
