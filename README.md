@@ -7,7 +7,7 @@
 **Carrera:** Tecnicatura Superior en Desarrollo de Software  
 **Año:** 2026  
 **Tablero de Trello:** [Sprint Planning - MocoSoft](https://trello.com/invite/b/6a2e0356521eb5ac626becc1/ATTI173e23d4ab0643c870b76cea2da572fc70588C20/tp2-mocosoft-frontend)  
-**Deploy en Vercel:** (https://front-tp2-grupal.vercel.app/)
+**Deploy en Vercel:** [front-tp2-grupal.vercel.app](https://front-tp2-grupal.vercel.app/)
 
 ---
 
@@ -80,28 +80,28 @@ Gracias a este desacoplamiento, componentes clave como la vista de perfiles (`Pe
 ## Recorrido por las Secciones y Capturas de Pantalla
 
 ### 1. Panel de Inicio (Home)
-[Dashboard de Inicio](./public/img/screenshots/dashboard.jpg)  
+![Dashboard de Inicio](./public/img/screenshots/dashboard.jpg)  
 **Consigna cumplida:** Presentación formal de la sección institucional "Quiénes Somos", mapa interactivo de ubicación y grilla de accesos rápidos parametrizados para cada integrante con avatares circulares. Incorpora lógica de renderizado condicional para alternar la visibilidad del propósito del equipo.
 
 ### 2. Vista Detallada de Perfil Profesional
-[Sección de Películas](./public/img/screenshots/peliculas.jpg)  
-[Sección de Álbumes](./public/img/screenshots/discos.jpg)  
+![Sección de Películas](./public/img/screenshots/peliculas.jpg)  
+![Sección de Álbumes](./public/img/screenshots/discos.jpg)  
 Páginas individuales administradas dinámicamente por el enrutador. Incluyen barras de progreso animadas para la ponderación del stack técnico, un mínimo de 5 íconos interactivos, enlaces a redes con efectos de escalado posicional y carrusel manual para la visualización de proyectos propios. Cuenta con módulos personalizados independientes para la integración de material cinematográfico y reproductores asíncronos de Spotify.
 
 ### 3. Explorador de Datos Indexado
-[Explorador JSON Dinámico](./public/img/screenshots/explorador.jpg)  
+![Explorador JSON Dinámico](./public/img/screenshots/explorador.jpg)  
 Renderizado dinámicamente un archivo JSON de configuración compuesto por más de 20 objetos de desarrollo. Implementa un campo de búsqueda indexado por texto y lógica de filtrado por categorías en tiempo real acoplada al estado del componente.
 
 ### 4. Módulo de API Externa (Noticias Tech)
-[Módulo de Noticias](./public/img/screenshots/noticias.jpg)  
+![Módulo de Noticias](./public/img/screenshots/noticias.jpg)  
 Consumo asíncrono en tiempo real desde los endpoints públicos de la API de *Dev.to*. Estructura un manejo estricto de los estados del ciclo de vida de la petición: carga (`Loading`), éxito de renderizado y pantallas de contingencia ante errores de red, acoplado a un sistema de paginación manual incremental.
 
 ### 5. Galería de Imágenes Interactiva (Lightbox)
-[Galería Interactiva](./public/img/screenshots/galeria.jpg)  
+![Galería Interactiva](./public/img/screenshots/galeria.jpg)  
 Visualizador estructurado sobre una cuadrícula elástica (CSS Grid) que consume dinámicamente el archivo `proyectos.json`. Cuenta con un módulo de Lightbox integrado: la selección de una tarjeta despliega un contenedor modal opaco a pantalla completa con controles de navegación interna. Las dimensiones se encuentran limitadas de forma responsive (`55vh`) para mitigar desbordes verticales en dispositivos móviles, incorporando el cierre obligatorio mediante eventos de escucha para la tecla **ESC** y clics en zonas externas.
 
 ### 6. Bitácora del Proyecto y Evolución
-[Bitácora de Desarrollo](./public/img/screenshots/bitacora.jpg)  
+![Bitácora de Desarrollo](./public/img/screenshots/bitacora.jpg)  
 Renderizado cronológico modular de las fases de desarrollo extraídas desde `bitacora.json`. Documenta la organización interna del equipo para cumplir con los requerimientos del proyecto.
 
 #### Tablero Organizacional (Trello Kanban)
@@ -114,7 +114,7 @@ La transición desde los archivos HTML/JS imperativos del TP1 hacia React se fun
 * **Single Page Application:** La supresión de peticiones de archivos HTML independientes al servidor agiliza la navegación del cliente y estabiliza la persistencia de datos globales de la aplicación.
 
 ### 7. Formulario de Contacto (Formspree SDK)
-[Formulario de Contacto](./public/img/screenshots/formulario.jpg)  
+![Formulario de Contacto](./public/img/screenshots/formulario.jpg)  
 Formulario de validación asíncrona enlazado directamente a través del SDK de `@formspree/react`, procesando estados de envío, éxito y contingencias de datos de manera declarativa.
 
 ## Uso de Inteligencia Artificial como Asistente de Desarrollo
@@ -136,27 +136,55 @@ La IA funcionó como un consultor técnico en tiempo real para resolver las sigu
 
 ---
 
-App (Componente Raíz)
-└── BrowserRouter (Contexto Global de Rutas)
-    └── div.dashboard-layout (Maquetado de Contención)
-        ├── Sidebar (Menú de Navegación Lateral Fijo)
-        │   ├── div.sidebar-header (Logo del Grupo MocoSoft)
-        │   ├── NavLink (path="/") -> Home
-        │   ├── NavLink (path="/bitacora") -> Bitacora
-        │   ├── NavLink (path="/explorador") -> Explorador
-        │   ├── NavLink (path="/api-externa") -> ApiNoticias
-        │   ├── NavLink (path="/galeria") -> Galeria
-        │   ├── NavLink (path="/arbol") -> Arbol 
-        │   ├── NavLink (path="/contacto") -> Contacto
-        │   └── ToggleButton (Switch de Control de Modo Oscuro)
-        └── DashboardContent (Contenedor Elástico Central Derecho)
-            └── Routes (Manejador Dinámico de Vistas)
-                ├── Route (/) -> Home
-                │   └── Card
-                ├── Route (/perfil/:id) -> Perfil
-                ├── Route (/bitacora) -> Bitacora
-                ├── Route (/explorador) -> Explorador
-                ├── Route (/api-externa) -> ApiNoticias
-                ├── Route (/galeria) -> Galeria 
-                ├── Route (/arbol) -> Arbol
-                └── Route (/contacto) -> Contacto
+## Instalación y Ejecución en Entorno Local
+
+Para clonar el repositorio e iniciar la aplicación en un entorno de desarrollo local, ejecute la siguiente secuencia de comandos en su terminal:
+
+1. **Clonar el repositorio desde GitHub:**
+
+   git clone [https://github.com/alerod88/front_tp2_grupal.git](https://github.com/alerod88/front_tp2_grupal.git)
+
+2. **Ingresar al directorio raíz del proyecto:**  Ingresar al directorio raíz del proyecto:
+
+cd front_tp2_grupal
+
+3. **Instalar las dependencias declaradas en el archivo package.json:**
+
+npm install
+
+4. **Iniciar el servidor de desarrollo local con Vite:**
+
+npm run dev
+
+4. **Acceder a la aplicación:**
+
+Una vez inicializado el compilador, abra el navegador web e ingrese a la dirección local asignada: http://localhost:5173
+
+---
+
+```text
+front_tp2_grupal/
+├── public/
+│   └── img/
+│       └── screenshots/      # Capturas de pantalla documentales
+├── src/
+│   ├── components/           # Componentes reutilizables de la interfaz
+│   │   ├── Sidebar.jsx
+│   │   ├── ScrollToTop.jsx
+│   │   └── ToggleButton.jsx
+│   ├── data/                 # Archivos JSON locales de almacenamiento estático
+│   │   ├── data.json
+│   │   ├── proyectos.json
+│   │   └── bitacora.json
+│   ├── pages/                # Componentes contenedores de rutas (Vistas)
+│   │   ├── Home.jsx
+│   │   ├── Perfil.jsx
+│   │   ├── Explorador.jsx
+│   │   ├── ApiNoticias.jsx
+│   │   ├── Galeria.jsx
+│   │   ├── Arbol.jsx
+│   │   └── Contacto.jsx
+│   ├── App.jsx               # Componente Raíz y Enrutador
+│   └── main.jsx              # Punto de entrada de renderizado al DOM
+├── package.json              # Manifiesto de dependencias y scripts
+└── README.md                 # Documentación del proyecto
