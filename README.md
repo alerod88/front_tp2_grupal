@@ -117,6 +117,23 @@ La transición desde los archivos HTML/JS imperativos del TP1 hacia React se fun
 [Formulario de Contacto](./public/img/screenshots/formulario.jpg)  
 Formulario de validación asíncrona enlazado directamente a través del SDK de `@formspree/react`, procesando estados de envío, éxito y contingencias de datos de manera declarativa.
 
+## Uso de Inteligencia Artificial como Asistente de Desarrollo
+
+En cumplimiento con los requerimientos técnicos de la cátedra, detallamos el uso estratégico de herramientas de Inteligencia Artificial durante el ciclo de vida del proyecto, empleadas como asistentes de código, diseño y documentación sin sustituir la autoría intelectual del equipo.
+
+### 1. Modelos Utilizados
+* **Asistencia General y Lógica:** Google Gemini (Modelo Pro) en interacción directa en el entorno de chat.
+
+### 2. Implementación en Código y Lógica de Desarrollo
+La IA funcionó como un consultor técnico en tiempo real para resolver las siguientes problemáticas específicas de arquitectura frontend:
+* **Lógica del Lightbox de la Galería:** Optimización del ciclo de vida del componente mediante `useEffect` para capturar de manera asíncrona los eventos del teclado (teclas de flechas y el cierre obligatorio con la tecla `ESC`), asegurando la limpieza de los escuchas de eventos (`removeEventListener`) al desmontar la vista.
+* **Depuración de Errores Responsivos (Mobile Debugging):** Resolución del solapamiento visual y recorte de la primera letra en el esquema jerárquico de componentes (Árbol de Renderizado). Se estructuró un bloque preformateado `<pre>` forzando la propiedad `overflow-x: auto` y un ancho elástico relativo, conteniendo el esquema sin romper los márgenes de los dispositivos móviles.
+* **Estructuración de Datos Desacoplados:** Refactorización de la grilla de proyectos para transicionar desde componentes hardcodeados hacia una lectura iterativa limpia mediante el método `.map()` consumiendo el archivo estático local `proyectos.json`.
+
+### 3. Generación de Contenidos e Imágenes
+* **Criterio de Prompts para Avatares:** Para las portadas y los avatares circulares de los perfiles profesionales de los integrantes en la Home, se utilizaron modelos de difusión generativa de imágenes. El criterio de diseño se unificó bajo una estética corporativa abstracta de tecnología mediante prompts estructurados en inglés como: *"Minimalist circular avatar vector, corporate tech style, developer mascot profile, modern flat design, slate gray and emerald green tones, white background"*.
+
+
 ---
 
 App (Componente Raíz)
